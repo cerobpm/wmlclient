@@ -1,0 +1,123 @@
+{
+    "sitesResponse": {
+        "queryInfo": {
+            "creationTime": "2019-01-14T03:55:19.000Z",
+            "criteria": {
+                "attributes": {
+                    "MethodCalled": "GetSiteInfo"
+                },
+                "parameter": [
+                    {
+                        "attributes": {
+                            "name": "site",
+                            "value": "INMET:ALEGRETE@1554986357"
+                        }
+                    }
+                ]
+            }
+        },
+        "site": [
+            {
+                "siteInfo": {
+                    "siteName": "ALEGRETE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "INMET"
+                            },
+                            "$value": "INMET:ALEGRETE@1554986357"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-29.71166666",
+                            "longitude": "-55.5261111"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    {
+                        "series": [
+                            {
+                                "variable": {
+                                    "variableCode": [
+                                        {
+                                            "attributes": {
+                                                "default": "true",
+                                                "variableID": "Precipitation",
+                                                "vocabulary": "INMET"
+                                            },
+                                            "$value": "Precipitation"
+                                        }
+                                    ],
+                                    "variableName": "Precipitation",
+                                    "valueType": "",
+                                    "dataType": "Unknown",
+                                    "generalCategory": "Hydrology",
+                                    "sampleMedium": "",
+                                    "unit": {
+                                        "unitName": "",
+                                        "unitType": "",
+                                        "unitAbbreviation": "",
+                                        "unitCode": null
+                                    },
+                                    "noDataValue": "-9999",
+                                    "timeScale": {
+                                        "attributes": {
+                                            "isRegular": "true"
+                                        },
+                                        "unit": {
+                                            "unitName": "hour",
+                                            "unitType": "Time",
+                                            "unitAbbreviation": "hr",
+                                            "unitCode": "103"
+                                        },
+                                        "timeSupport": "0"
+                                    },
+                                    "speciation": "Not Applicable"
+                                },
+                                "valueCount": null,
+                                "variableTimeInterval": {
+                                    "attributes": {
+                                        "xsi:type": "TimeIntervalType"
+                                    },
+                                    "beginDateTime": null,
+                                    "endDateTime": null,
+                                    "beginDateTimeUTC": "2017-01-01T00:00:00.000Z",
+                                    "endDateTimeUTC": "2018-06-18T23:00:00.000Z"
+                                },
+                                "method": {
+                                    "attributes": {
+                                        "methodID": "0"
+                                    },
+                                    "methodCode": "0",
+                                    "methodDescription": "No method specified",
+                                    "methodLink": ""
+                                },
+                                "source": {
+                                    "attributes": {
+                                        "sourceID": ""
+                                    },
+                                    "organization": "INMET",
+                                    "sourceDescription": "INMET",
+                                    "citation": ""
+                                },
+                                "qualityControlLevel": {
+                                    "attributes": {
+                                        "qualityControlLevelID": "-9999"
+                                    },
+                                    "qualityControlLevelCode": "-9999",
+                                    "definition": "Unknown"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

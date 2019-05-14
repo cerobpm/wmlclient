@@ -1,0 +1,931 @@
+{
+    "sitesResponse": {
+        "queryInfo": {
+            "criteria": {
+                "attributes": {
+                    "MethodCalled": "GetSitesByBox"
+                },
+                "parameter": [
+                    {
+                        "attributes": {
+                            "name": "site",
+                            "value": "ALL SITES"
+                        }
+                    }
+                ]
+            }
+        },
+        "site": [
+            {
+                "siteInfo": {
+                    "siteName": "PCH SANTA LAURA BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73692500@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.76720",
+                            "longitude": "-52.32330"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH XAVANTINA JUSANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73330250@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.97940",
+                            "longitude": "-52.38030"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH ALTO IRANI RIO XANXERÊ",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73331800@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.94000",
+                            "longitude": "-52.44110"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH PLANO ALTO BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73318000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.95890",
+                            "longitude": "-52.34110"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH CELSO RAMOS PASSOS MAIA",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73690002@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.77330",
+                            "longitude": "-52.02530"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH CAJU BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73331900@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.95190",
+                            "longitude": "-52.45470"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH PLANO ALTO MONTANTE 2",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73290000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.93080",
+                            "longitude": "-52.13610"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH XAVANTINA BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73330200@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.98030",
+                            "longitude": "-52.37970"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH SANTA LUZIA ALTO MONTANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73590000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.59940",
+                            "longitude": "-52.26780"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH ARTURO ANDREOLI PORTO PALMEIRINHA",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:65927001@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.02890",
+                            "longitude": "-52.62810"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "XANXERE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "INMET"
+                            },
+                            "$value": "INMET:XANXERE@1554986357"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.9386111",
+                            "longitude": "-52.415"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH DALAPRIA JUSANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73691000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.79470",
+                            "longitude": "-52.13780"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PASSO PIO X",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "his-bra"
+                            },
+                            "$value": "his-bra:73820000@1969377081"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.8594",
+                            "longitude": "-52.9047"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH RONDINHA BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73582000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.68080",
+                            "longitude": "-52.04420"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "CORONEL PASSOS MAIA",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73690001@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.77330",
+                            "longitude": "-52.02530"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH RONDINHA JUSANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73582500@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.68440",
+                            "longitude": "-52.04890"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH SANTA LAURA JUSANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73693500@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.76110",
+                            "longitude": "-52.33780"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH TIGRE BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:65831000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.05280",
+                            "longitude": "-52.17830"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PASSO PIO X",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73820000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.85940",
+                            "longitude": "-52.90470"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "NOVO HORIZONTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "INMET"
+                            },
+                            "$value": "INMET:NOVO HORIZONTE@1554986357"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.40694444",
+                            "longitude": "-52.85055555"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH VITORINO MONTANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:65945200@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.01000",
+                            "longitude": "-52.79390"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH TIGRE JUSANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:65831020@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.04110",
+                            "longitude": "-52.17500"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH PASSO FERRAZ JUSANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73693800@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.75280",
+                            "longitude": "-52.38420"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH PASSO FERRAZ BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73693700@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.75970",
+                            "longitude": "-52.38610"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "UHE QUEBRA QUEIXO BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73600600@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.65610",
+                            "longitude": "-52.54330"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH CAJU MONTANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73331850@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.94500",
+                            "longitude": "-52.44890"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH PLANO ALTO MONTANTE 1",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73310000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.94080",
+                            "longitude": "-52.26110"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH CELSO RAMOS BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73694000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.75920",
+                            "longitude": "-52.25810"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "UHE QUEBRA QUEIXO JUSANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73600700@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.66970",
+                            "longitude": "-52.55610"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH SANTA LUZIA ALTO BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73600400@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.61390",
+                            "longitude": "-52.53750"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "CLEVELANDIA",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "INMET"
+                            },
+                            "$value": "INMET:CLEVELANDIA@1554986357"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.41722221",
+                            "longitude": "-52.34888888"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "CORONEL PASSOS MAIA",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "his-bra"
+                            },
+                            "$value": "his-bra:73690001@1969377081"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.7725",
+                            "longitude": "-52.025"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH FAXINAL DOS GUEDES BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73692200@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.76970",
+                            "longitude": "-52.22470"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH FAXINAL DOS GUEDES MONTANTE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73692100@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.77110",
+                            "longitude": "-52.19170"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "PCH LUDESA BARRAMENTO",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:73600200@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-26.57780",
+                            "longitude": "-52.49500"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            }
+        ]
+    }
+}

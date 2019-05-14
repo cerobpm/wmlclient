@@ -1,0 +1,68 @@
+<h3>GetValuesObject</h3>
+<p><a href="siteinfo?endpoint={{endpoint}}&site={{site}}">Volver a siteinfo</a></p>
+<form method=GET>
+	<label for="endpoint">Service endpoint</label>
+	<input type=text title="WaterOneFlow WaterML Service URL" name=endpoint value={{endpoint}}></input><br>
+	<label for="site">site</label>
+	<input type=text title="site code" name=site value={{site}}></input><br>
+	<label for="variable">variable</label>
+	<input type=text title="variable code" name=variable value={{variable}}></input><br>
+	<label for="startDate">startDate</label><br>
+	<input type=date title="start date" name=startDate value={{startDate}}></input><br>
+	<label for="endDate">endDate</label><br>
+	<input type=date title="end date" name=endDate value={{endDate}}></input><br>
+	<input type=radio name=accion value=downloadraw>Descargar archivo WaterML</input><br>
+	<input type=radio name=accion value=download>Descargar archivo JSON</input><br>
+	<input type=radio name=accion value=listado selected>Ver listado aquí</input><br>
+	<input type=submit />
+</form>
+
+<h4>Time Series Info</h4>
+<table id=metadata class=results>
+{{#each metadata}}
+<tr><th>{{@key}}</th><td>{{this}}</td></tr>
+{{/each}}
+</table>
+
+<h4>Values</h4>
+<table id=results class=results>
+<tr>
+	<th>censorCode</th>
+	<th>dateTime</th>
+	<th>qualityControlLevel</th>
+	<th>methodID</th>
+	<th>sourceID</th>
+	<th>sampleID</th>
+	<th>value</th>
+</tr>
+ {{#each results}}
+<tr>
+ 	<td>{{censorCode}}</td>
+	<td>{{dateTime}}</td>
+	<td>{{qualityControlLevel}}</td>
+	<td>{{methodID}}</td>
+	<td>{{sourceID}}</td>
+	<td>{{sampleID}}</td>
+	<td>{{value}}</td>
+</tr>
+{{/each}}
+</table>
+<script type=text/javascript>
+	 $(document).ready( function() {
+		//~ CREA DATATABLE
+			$('#results').DataTable( {
+				  dom: 'Bfrtip',
+				  buttons: [
+				  'copy', 'csv', 'excel', 'pdf', 'print'
+                  ],
+                  columnDefs: [
+					{ 
+						targets: '_all',
+						className: 'dt-center'
+					}
+				  ]
+            });
+	});
+	
+</script>
+

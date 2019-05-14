@@ -1,0 +1,151 @@
+{
+    "sitesResponse": {
+        "queryInfo": {
+            "criteria": {
+                "attributes": {
+                    "MethodCalled": "GetSitesByBox"
+                },
+                "parameter": [
+                    {
+                        "attributes": {
+                            "name": "site",
+                            "value": "ALL SITES"
+                        }
+                    }
+                ]
+            }
+        },
+        "site": [
+            {
+                "siteInfo": {
+                    "siteName": "MANOEL VIANA",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "his-bra"
+                            },
+                            "$value": "his-bra:76560000@1969377081"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-29.5942",
+                            "longitude": "-55.4814"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "MANOEL VIANA",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:76560000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-29.59580",
+                            "longitude": "-55.48140"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "ALEGRETE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "INMET"
+                            },
+                            "$value": "INMET:ALEGRETE@1554986357"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-29.71166666",
+                            "longitude": "-55.5261111"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "ALEGRETE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "ANA"
+                            },
+                            "$value": "ANA:76750000@1613412505"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-29.76830",
+                            "longitude": "-55.78750"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            },
+            {
+                "siteInfo": {
+                    "siteName": "ALEGRETE",
+                    "siteCode": [
+                        {
+                            "attributes": {
+                                "network": "his-bra"
+                            },
+                            "$value": "his-bra:76750000@1969377081"
+                        }
+                    ],
+                    "geoLocation": {
+                        "geogLocation": {
+                            "attributes": {
+                                "xsi:type": "LatLonPointType"
+                            },
+                            "latitude": "-29.7686",
+                            "longitude": "-55.7872"
+                        }
+                    },
+                    "elevation_m": null
+                },
+                "seriesCatalog": [
+                    null
+                ]
+            }
+        ]
+    }
+}

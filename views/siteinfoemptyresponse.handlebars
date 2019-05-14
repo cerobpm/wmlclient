@@ -1,0 +1,13 @@
+<p><a href="sites?endpoint={{endpoint}}">Volver a sites</a></p>
+<h3>GetSiteInfoObject</h3>
+<form method=GET>
+	<label for="endpoint">Service endpoint</label>
+	<input type=text title="WaterOneFlow WaterML Service URL" name=endpoint value={{endpoint}}></input><br>
+	<label for="site">site</label>
+	<input type=text title="site code" name=site value={{site}}></input><br>
+	<input type=radio name=accion value=downloadraw>Descargar archivo WaterML</input><br>
+	<input type=radio name=accion value=download>Descargar archivo JSON</input><br>
+	<input type=radio name=accion value=listado selected>Ver listado aquí</input><br>
+	<input type=submit />
+</form>
+<p id=response>No results found!</p>

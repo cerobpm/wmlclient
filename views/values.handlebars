@@ -1,0 +1,19 @@
+<p><a href="siteinfo?endpoint={{endpoint}}&site={{site}}">Volver a siteinfo</a></p>
+<h3>GetValuesObject</h3>
+<form method=GET>
+	<label for="endpoint">Service endpoint</label>
+	<input type=text title="WaterOneFlow WaterML Service URL" name=endpoint value={{endpoint}}></input><br>
+	<label for="site">site</label>
+	<input type=text title="site code" name=site value={{site}}></input><br>
+	<label for="variable">variable</label>
+	<input type=text title="variable code" name=variable value={{variable}}></input><br>
+	<label for="startDate">startDate</label><br>
+	<input type=date title="start date" name=startDate value={{startDate}}></input><br>
+	<label for="endDate">endDate</label><br>
+	<input type=date title="end date" name=endDate value={{endDate}}></input><br>
+	<input type=radio name=accion value=downloadraw>Descargar archivo WaterML</input><br>
+	<input type=radio name=accion value=download>Descargar archivo JSON</input><br>
+	<input type=radio name=accion value=listado selected>Ver listado aquí</input><br>
+	<input type=submit />
+</form>
+

@@ -1,0 +1,2838 @@
+{
+    "WaterOneFlow": {
+        "WaterOneFlow": {
+            "GetSites": {
+                "input": {
+                    "site": {
+                        "string[]": "s:string",
+                        "targetNSAlias": "tns",
+                        "targetNamespace": "http://www.cuahsi.org/his/1.1/ws/"
+                    },
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetSitesResult": "s:string"
+                }
+            },
+            "GetSiteInfo": {
+                "input": {
+                    "site": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetSiteInfoResult": "s:string"
+                }
+            },
+            "GetVariableInfo": {
+                "input": {
+                    "variable": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetVariableInfoResult": "s:string"
+                }
+            },
+            "GetSitesObject": {
+                "input": {
+                    "site": {
+                        "string[]": "s:string",
+                        "targetNSAlias": "tns",
+                        "targetNamespace": "http://www.cuahsi.org/his/1.1/ws/"
+                    },
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "sitesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "site[]": {
+                            "siteInfo": {
+                                "siteName": "s:string",
+                                "siteCode[]": {},
+                                "timeZoneInfo": {
+                                    "defaultTimeZone": {},
+                                    "daylightSavingsTimeZone": {}
+                                },
+                                "geoLocation": {
+                                    "geogLocation": {
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "localSiteXY[]": {
+                                        "X": "s:double",
+                                        "Y": "s:double",
+                                        "Z": "s:double",
+                                        "note[]": "s:string"
+                                    }
+                                },
+                                "elevation_m": "s:double",
+                                "verticalDatum": "s:string",
+                                "note[]": "s:string",
+                                "extension": {},
+                                "altname": "s:string",
+                                "siteType[]": "s:string",
+                                "siteProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "seriesCatalog[]": {
+                                "note[]": "s:string",
+                                "series[]": {
+                                    "dataType": "s:string",
+                                    "variable": {
+                                        "variableCode[]": {},
+                                        "variableName": "s:string",
+                                        "variableDescription": "s:string",
+                                        "valueType": "s:string",
+                                        "dataType": "s:string",
+                                        "generalCategory": "s:string",
+                                        "sampleMedium": "s:string",
+                                        "unit": {
+                                            "unitName": "s:string",
+                                            "unitDescription": "s:string",
+                                            "unitType": "s:string",
+                                            "unitAbbreviation": "s:string",
+                                            "unitCode": "s:token",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "options": {
+                                            "option[]": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "note[]": "s:string",
+                                        "related": {
+                                            "parentCode[]": "s:string",
+                                            "relatedCode[]": "s:string"
+                                        },
+                                        "extension": {},
+                                        "noDataValue": "s:double",
+                                        "timeScale": {
+                                            "unit": {
+                                                "unitName": "s:string",
+                                                "unitDescription": "s:string",
+                                                "unitType": "s:string",
+                                                "unitAbbreviation": "s:string",
+                                                "unitCode": "s:token",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "timeSpacing": "s:float",
+                                            "timeSupport": "s:float"
+                                        },
+                                        "speciation": "s:string",
+                                        "categories": {
+                                            "category[]": {
+                                                "dataValue": "s:decimal",
+                                                "description": "s:string"
+                                            },
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "variableProperty[]": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueCount": "s:int",
+                                    "variableTimeInterval": {
+                                        "beginDateTime": "s:dateTime",
+                                        "endDateTime": "s:dateTime",
+                                        "beginDateTimeUTC": "s:dateTime",
+                                        "endDateTimeUTC": "s:dateTime",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueType": "s:string",
+                                    "generalCategory": "s:string",
+                                    "sampleMedium": "s:string",
+                                    "method": {
+                                        "methodCode": "s:token",
+                                        "methodDescription": "s:string",
+                                        "methodLink": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "source": {
+                                        "sourceCode": "s:token",
+                                        "organization": "s:string",
+                                        "sourceDescription": "s:string",
+                                        "metadata": {
+                                            "topicCategory": "s:string",
+                                            "title": "s:string",
+                                            "abstract": "s:string",
+                                            "profileVersion": "s:string",
+                                            "metadataLink": "s:anyURI",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "contactInformation[]": {
+                                            "contactName": "s:string",
+                                            "typeOfContact": "s:normalizedString",
+                                            "email[]": "s:normalizedString",
+                                            "phone[]": "s:string",
+                                            "address[]": {},
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "sourceLink[]": "s:anyURI",
+                                        "citation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "qualityControlLevel": {
+                                        "qualityControlLevelCode": "s:token",
+                                        "definition": "s:string",
+                                        "explanation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "seriesProperty[]": "s:string"
+                                },
+                                "seriesCatalogProperty[]": "s:string",
+                                "extension": {},
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "extension[]": {}
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetSiteInfoObject": {
+                "input": {
+                    "site": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "sitesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "site[]": {
+                            "siteInfo": {
+                                "siteName": "s:string",
+                                "siteCode[]": {},
+                                "timeZoneInfo": {
+                                    "defaultTimeZone": {},
+                                    "daylightSavingsTimeZone": {}
+                                },
+                                "geoLocation": {
+                                    "geogLocation": {
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "localSiteXY[]": {
+                                        "X": "s:double",
+                                        "Y": "s:double",
+                                        "Z": "s:double",
+                                        "note[]": "s:string"
+                                    }
+                                },
+                                "elevation_m": "s:double",
+                                "verticalDatum": "s:string",
+                                "note[]": "s:string",
+                                "extension": {},
+                                "altname": "s:string",
+                                "siteType[]": "s:string",
+                                "siteProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "seriesCatalog[]": {
+                                "note[]": "s:string",
+                                "series[]": {
+                                    "dataType": "s:string",
+                                    "variable": {
+                                        "variableCode[]": {},
+                                        "variableName": "s:string",
+                                        "variableDescription": "s:string",
+                                        "valueType": "s:string",
+                                        "dataType": "s:string",
+                                        "generalCategory": "s:string",
+                                        "sampleMedium": "s:string",
+                                        "unit": {
+                                            "unitName": "s:string",
+                                            "unitDescription": "s:string",
+                                            "unitType": "s:string",
+                                            "unitAbbreviation": "s:string",
+                                            "unitCode": "s:token",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "options": {
+                                            "option[]": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "note[]": "s:string",
+                                        "related": {
+                                            "parentCode[]": "s:string",
+                                            "relatedCode[]": "s:string"
+                                        },
+                                        "extension": {},
+                                        "noDataValue": "s:double",
+                                        "timeScale": {
+                                            "unit": {
+                                                "unitName": "s:string",
+                                                "unitDescription": "s:string",
+                                                "unitType": "s:string",
+                                                "unitAbbreviation": "s:string",
+                                                "unitCode": "s:token",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "timeSpacing": "s:float",
+                                            "timeSupport": "s:float"
+                                        },
+                                        "speciation": "s:string",
+                                        "categories": {
+                                            "category[]": {
+                                                "dataValue": "s:decimal",
+                                                "description": "s:string"
+                                            },
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "variableProperty[]": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueCount": "s:int",
+                                    "variableTimeInterval": {
+                                        "beginDateTime": "s:dateTime",
+                                        "endDateTime": "s:dateTime",
+                                        "beginDateTimeUTC": "s:dateTime",
+                                        "endDateTimeUTC": "s:dateTime",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueType": "s:string",
+                                    "generalCategory": "s:string",
+                                    "sampleMedium": "s:string",
+                                    "method": {
+                                        "methodCode": "s:token",
+                                        "methodDescription": "s:string",
+                                        "methodLink": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "source": {
+                                        "sourceCode": "s:token",
+                                        "organization": "s:string",
+                                        "sourceDescription": "s:string",
+                                        "metadata": {
+                                            "topicCategory": "s:string",
+                                            "title": "s:string",
+                                            "abstract": "s:string",
+                                            "profileVersion": "s:string",
+                                            "metadataLink": "s:anyURI",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "contactInformation[]": {
+                                            "contactName": "s:string",
+                                            "typeOfContact": "s:normalizedString",
+                                            "email[]": "s:normalizedString",
+                                            "phone[]": "s:string",
+                                            "address[]": {},
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "sourceLink[]": "s:anyURI",
+                                        "citation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "qualityControlLevel": {
+                                        "qualityControlLevelCode": "s:token",
+                                        "definition": "s:string",
+                                        "explanation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "seriesProperty[]": "s:string"
+                                },
+                                "seriesCatalogProperty[]": "s:string",
+                                "extension": {},
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "extension[]": {}
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetVariableInfoObject": {
+                "input": {
+                    "variable": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "variablesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "variables": {
+                            "variable[]": {
+                                "variableCode[]": {},
+                                "variableName": "s:string",
+                                "variableDescription": "s:string",
+                                "valueType": "s:string",
+                                "dataType": "s:string",
+                                "generalCategory": "s:string",
+                                "sampleMedium": "s:string",
+                                "unit": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "options": {
+                                    "option[]": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "note[]": "s:string",
+                                "related": {
+                                    "parentCode[]": "s:string",
+                                    "relatedCode[]": "s:string"
+                                },
+                                "extension": {},
+                                "noDataValue": "s:double",
+                                "timeScale": {
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "timeSpacing": "s:float",
+                                    "timeSupport": "s:float"
+                                },
+                                "speciation": "s:string",
+                                "categories": {
+                                    "category[]": {
+                                        "dataValue": "s:decimal",
+                                        "description": "s:string"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "variableProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    }
+                }
+            },
+            "GetValues": {
+                "input": {
+                    "location": "s:string",
+                    "variable": "s:string",
+                    "startDate": "s:string",
+                    "endDate": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetValuesResult": "s:string"
+                }
+            },
+            "GetValuesObject": {
+                "input": {
+                    "location": "s:string",
+                    "variable": "s:string",
+                    "startDate": "s:string",
+                    "endDate": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "timeSeriesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "timeSeries[]": {
+                            "sourceInfo": {
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "variable": {
+                                "variableCode[]": {},
+                                "variableName": "s:string",
+                                "variableDescription": "s:string",
+                                "valueType": "s:string",
+                                "dataType": "s:string",
+                                "generalCategory": "s:string",
+                                "sampleMedium": "s:string",
+                                "unit": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "options": {
+                                    "option[]": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "note[]": "s:string",
+                                "related": {
+                                    "parentCode[]": "s:string",
+                                    "relatedCode[]": "s:string"
+                                },
+                                "extension": {},
+                                "noDataValue": "s:double",
+                                "timeScale": {
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "timeSpacing": "s:float",
+                                    "timeSupport": "s:float"
+                                },
+                                "speciation": "s:string",
+                                "categories": {
+                                    "category[]": {
+                                        "dataValue": "s:decimal",
+                                        "description": "s:string"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "variableProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "values[]": {
+                                "value[]": "s:decimal",
+                                "units": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "qualifier[]": {
+                                    "qualifierCode": "s:token",
+                                    "qualifierDescription": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "qualityControlLevel[]": {
+                                    "qualityControlLevelCode": "s:token",
+                                    "definition": "s:string",
+                                    "explanation": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "method[]": {
+                                    "methodCode": "s:token",
+                                    "methodDescription": "s:string",
+                                    "methodLink": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "source[]": {
+                                    "sourceCode": "s:token",
+                                    "organization": "s:string",
+                                    "sourceDescription": "s:string",
+                                    "metadata": {
+                                        "topicCategory": "s:string",
+                                        "title": "s:string",
+                                        "abstract": "s:string",
+                                        "profileVersion": "s:string",
+                                        "metadataLink": "s:anyURI",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "contactInformation[]": {
+                                        "contactName": "s:string",
+                                        "typeOfContact": "s:normalizedString",
+                                        "email[]": "s:normalizedString",
+                                        "phone[]": "s:string",
+                                        "address[]": {},
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "sourceLink[]": "s:anyURI",
+                                    "citation": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "offset[]": {
+                                    "offsetTypeCode": "s:token",
+                                    "offsetValue": "s:float",
+                                    "offsetDescription": "s:string",
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "offsetIsVertical": "s:boolean",
+                                    "offsetAzimuthDegrees": "s:int",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "sample[]": {
+                                    "labSampleCode": "s:normalizedString",
+                                    "sampleType": "s:string",
+                                    "labMethod": {
+                                        "labCode": "s:token",
+                                        "labName": "s:string",
+                                        "labOrganization": "s:string",
+                                        "labMethodName": "s:string",
+                                        "labMethodDescription": "s:string",
+                                        "labMethodLink": "s:string",
+                                        "labSourceDetails": {
+                                            "sourceCode": "s:token",
+                                            "organization": "s:string",
+                                            "sourceDescription": "s:string",
+                                            "metadata": {
+                                                "topicCategory": "s:string",
+                                                "title": "s:string",
+                                                "abstract": "s:string",
+                                                "profileVersion": "s:string",
+                                                "metadataLink": "s:anyURI",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "contactInformation[]": {
+                                                "contactName": "s:string",
+                                                "typeOfContact": "s:normalizedString",
+                                                "email[]": "s:normalizedString",
+                                                "phone[]": "s:string",
+                                                "address[]": {},
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "sourceLink[]": "s:anyURI",
+                                            "citation": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "censorCode[]": {
+                                    "censorCode": "s:string",
+                                    "censorCodeDescription": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    }
+                }
+            },
+            "GetSiteInfoMultpleObject": {
+                "input": {
+                    "site": {
+                        "string[]": "s:string",
+                        "targetNSAlias": "tns",
+                        "targetNamespace": "http://www.cuahsi.org/his/1.1/ws/"
+                    },
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "sitesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "site[]": {
+                            "siteInfo": {
+                                "siteName": "s:string",
+                                "siteCode[]": {},
+                                "timeZoneInfo": {
+                                    "defaultTimeZone": {},
+                                    "daylightSavingsTimeZone": {}
+                                },
+                                "geoLocation": {
+                                    "geogLocation": {
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "localSiteXY[]": {
+                                        "X": "s:double",
+                                        "Y": "s:double",
+                                        "Z": "s:double",
+                                        "note[]": "s:string"
+                                    }
+                                },
+                                "elevation_m": "s:double",
+                                "verticalDatum": "s:string",
+                                "note[]": "s:string",
+                                "extension": {},
+                                "altname": "s:string",
+                                "siteType[]": "s:string",
+                                "siteProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "seriesCatalog[]": {
+                                "note[]": "s:string",
+                                "series[]": {
+                                    "dataType": "s:string",
+                                    "variable": {
+                                        "variableCode[]": {},
+                                        "variableName": "s:string",
+                                        "variableDescription": "s:string",
+                                        "valueType": "s:string",
+                                        "dataType": "s:string",
+                                        "generalCategory": "s:string",
+                                        "sampleMedium": "s:string",
+                                        "unit": {
+                                            "unitName": "s:string",
+                                            "unitDescription": "s:string",
+                                            "unitType": "s:string",
+                                            "unitAbbreviation": "s:string",
+                                            "unitCode": "s:token",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "options": {
+                                            "option[]": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "note[]": "s:string",
+                                        "related": {
+                                            "parentCode[]": "s:string",
+                                            "relatedCode[]": "s:string"
+                                        },
+                                        "extension": {},
+                                        "noDataValue": "s:double",
+                                        "timeScale": {
+                                            "unit": {
+                                                "unitName": "s:string",
+                                                "unitDescription": "s:string",
+                                                "unitType": "s:string",
+                                                "unitAbbreviation": "s:string",
+                                                "unitCode": "s:token",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "timeSpacing": "s:float",
+                                            "timeSupport": "s:float"
+                                        },
+                                        "speciation": "s:string",
+                                        "categories": {
+                                            "category[]": {
+                                                "dataValue": "s:decimal",
+                                                "description": "s:string"
+                                            },
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "variableProperty[]": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueCount": "s:int",
+                                    "variableTimeInterval": {
+                                        "beginDateTime": "s:dateTime",
+                                        "endDateTime": "s:dateTime",
+                                        "beginDateTimeUTC": "s:dateTime",
+                                        "endDateTimeUTC": "s:dateTime",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueType": "s:string",
+                                    "generalCategory": "s:string",
+                                    "sampleMedium": "s:string",
+                                    "method": {
+                                        "methodCode": "s:token",
+                                        "methodDescription": "s:string",
+                                        "methodLink": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "source": {
+                                        "sourceCode": "s:token",
+                                        "organization": "s:string",
+                                        "sourceDescription": "s:string",
+                                        "metadata": {
+                                            "topicCategory": "s:string",
+                                            "title": "s:string",
+                                            "abstract": "s:string",
+                                            "profileVersion": "s:string",
+                                            "metadataLink": "s:anyURI",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "contactInformation[]": {
+                                            "contactName": "s:string",
+                                            "typeOfContact": "s:normalizedString",
+                                            "email[]": "s:normalizedString",
+                                            "phone[]": "s:string",
+                                            "address[]": {},
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "sourceLink[]": "s:anyURI",
+                                        "citation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "qualityControlLevel": {
+                                        "qualityControlLevelCode": "s:token",
+                                        "definition": "s:string",
+                                        "explanation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "seriesProperty[]": "s:string"
+                                },
+                                "seriesCatalogProperty[]": "s:string",
+                                "extension": {},
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "extension[]": {}
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetSitesByBoxObject": {
+                "input": {
+                    "west": "s:float",
+                    "south": "s:float",
+                    "east": "s:float",
+                    "north": "s:float",
+                    "IncludeSeries": "s:boolean",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "sitesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "site[]": {
+                            "siteInfo": {
+                                "siteName": "s:string",
+                                "siteCode[]": {},
+                                "timeZoneInfo": {
+                                    "defaultTimeZone": {},
+                                    "daylightSavingsTimeZone": {}
+                                },
+                                "geoLocation": {
+                                    "geogLocation": {
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "localSiteXY[]": {
+                                        "X": "s:double",
+                                        "Y": "s:double",
+                                        "Z": "s:double",
+                                        "note[]": "s:string"
+                                    }
+                                },
+                                "elevation_m": "s:double",
+                                "verticalDatum": "s:string",
+                                "note[]": "s:string",
+                                "extension": {},
+                                "altname": "s:string",
+                                "siteType[]": "s:string",
+                                "siteProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "seriesCatalog[]": {
+                                "note[]": "s:string",
+                                "series[]": {
+                                    "dataType": "s:string",
+                                    "variable": {
+                                        "variableCode[]": {},
+                                        "variableName": "s:string",
+                                        "variableDescription": "s:string",
+                                        "valueType": "s:string",
+                                        "dataType": "s:string",
+                                        "generalCategory": "s:string",
+                                        "sampleMedium": "s:string",
+                                        "unit": {
+                                            "unitName": "s:string",
+                                            "unitDescription": "s:string",
+                                            "unitType": "s:string",
+                                            "unitAbbreviation": "s:string",
+                                            "unitCode": "s:token",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "options": {
+                                            "option[]": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "note[]": "s:string",
+                                        "related": {
+                                            "parentCode[]": "s:string",
+                                            "relatedCode[]": "s:string"
+                                        },
+                                        "extension": {},
+                                        "noDataValue": "s:double",
+                                        "timeScale": {
+                                            "unit": {
+                                                "unitName": "s:string",
+                                                "unitDescription": "s:string",
+                                                "unitType": "s:string",
+                                                "unitAbbreviation": "s:string",
+                                                "unitCode": "s:token",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "timeSpacing": "s:float",
+                                            "timeSupport": "s:float"
+                                        },
+                                        "speciation": "s:string",
+                                        "categories": {
+                                            "category[]": {
+                                                "dataValue": "s:decimal",
+                                                "description": "s:string"
+                                            },
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "variableProperty[]": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueCount": "s:int",
+                                    "variableTimeInterval": {
+                                        "beginDateTime": "s:dateTime",
+                                        "endDateTime": "s:dateTime",
+                                        "beginDateTimeUTC": "s:dateTime",
+                                        "endDateTimeUTC": "s:dateTime",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueType": "s:string",
+                                    "generalCategory": "s:string",
+                                    "sampleMedium": "s:string",
+                                    "method": {
+                                        "methodCode": "s:token",
+                                        "methodDescription": "s:string",
+                                        "methodLink": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "source": {
+                                        "sourceCode": "s:token",
+                                        "organization": "s:string",
+                                        "sourceDescription": "s:string",
+                                        "metadata": {
+                                            "topicCategory": "s:string",
+                                            "title": "s:string",
+                                            "abstract": "s:string",
+                                            "profileVersion": "s:string",
+                                            "metadataLink": "s:anyURI",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "contactInformation[]": {
+                                            "contactName": "s:string",
+                                            "typeOfContact": "s:normalizedString",
+                                            "email[]": "s:normalizedString",
+                                            "phone[]": "s:string",
+                                            "address[]": {},
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "sourceLink[]": "s:anyURI",
+                                        "citation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "qualityControlLevel": {
+                                        "qualityControlLevelCode": "s:token",
+                                        "definition": "s:string",
+                                        "explanation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "seriesProperty[]": "s:string"
+                                },
+                                "seriesCatalogProperty[]": "s:string",
+                                "extension": {},
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "extension[]": {}
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetValuesForASiteObject": {
+                "input": {
+                    "site": "s:string",
+                    "startDate": "s:string",
+                    "endDate": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "timeSeriesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "timeSeries[]": {
+                            "sourceInfo": {
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "variable": {
+                                "variableCode[]": {},
+                                "variableName": "s:string",
+                                "variableDescription": "s:string",
+                                "valueType": "s:string",
+                                "dataType": "s:string",
+                                "generalCategory": "s:string",
+                                "sampleMedium": "s:string",
+                                "unit": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "options": {
+                                    "option[]": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "note[]": "s:string",
+                                "related": {
+                                    "parentCode[]": "s:string",
+                                    "relatedCode[]": "s:string"
+                                },
+                                "extension": {},
+                                "noDataValue": "s:double",
+                                "timeScale": {
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "timeSpacing": "s:float",
+                                    "timeSupport": "s:float"
+                                },
+                                "speciation": "s:string",
+                                "categories": {
+                                    "category[]": {
+                                        "dataValue": "s:decimal",
+                                        "description": "s:string"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "variableProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "values[]": {
+                                "value[]": "s:decimal",
+                                "units": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "qualifier[]": {
+                                    "qualifierCode": "s:token",
+                                    "qualifierDescription": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "qualityControlLevel[]": {
+                                    "qualityControlLevelCode": "s:token",
+                                    "definition": "s:string",
+                                    "explanation": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "method[]": {
+                                    "methodCode": "s:token",
+                                    "methodDescription": "s:string",
+                                    "methodLink": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "source[]": {
+                                    "sourceCode": "s:token",
+                                    "organization": "s:string",
+                                    "sourceDescription": "s:string",
+                                    "metadata": {
+                                        "topicCategory": "s:string",
+                                        "title": "s:string",
+                                        "abstract": "s:string",
+                                        "profileVersion": "s:string",
+                                        "metadataLink": "s:anyURI",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "contactInformation[]": {
+                                        "contactName": "s:string",
+                                        "typeOfContact": "s:normalizedString",
+                                        "email[]": "s:normalizedString",
+                                        "phone[]": "s:string",
+                                        "address[]": {},
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "sourceLink[]": "s:anyURI",
+                                    "citation": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "offset[]": {
+                                    "offsetTypeCode": "s:token",
+                                    "offsetValue": "s:float",
+                                    "offsetDescription": "s:string",
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "offsetIsVertical": "s:boolean",
+                                    "offsetAzimuthDegrees": "s:int",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "sample[]": {
+                                    "labSampleCode": "s:normalizedString",
+                                    "sampleType": "s:string",
+                                    "labMethod": {
+                                        "labCode": "s:token",
+                                        "labName": "s:string",
+                                        "labOrganization": "s:string",
+                                        "labMethodName": "s:string",
+                                        "labMethodDescription": "s:string",
+                                        "labMethodLink": "s:string",
+                                        "labSourceDetails": {
+                                            "sourceCode": "s:token",
+                                            "organization": "s:string",
+                                            "sourceDescription": "s:string",
+                                            "metadata": {
+                                                "topicCategory": "s:string",
+                                                "title": "s:string",
+                                                "abstract": "s:string",
+                                                "profileVersion": "s:string",
+                                                "metadataLink": "s:anyURI",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "contactInformation[]": {
+                                                "contactName": "s:string",
+                                                "typeOfContact": "s:normalizedString",
+                                                "email[]": "s:normalizedString",
+                                                "phone[]": "s:string",
+                                                "address[]": {},
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "sourceLink[]": "s:anyURI",
+                                            "citation": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "censorCode[]": {
+                                    "censorCode": "s:string",
+                                    "censorCodeDescription": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetVariables": {
+                "input": {
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetVariablesResult": "s:string"
+                }
+            },
+            "GetVariablesObject": {
+                "input": {
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "variablesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "variables": {
+                            "variable[]": {
+                                "variableCode[]": {},
+                                "variableName": "s:string",
+                                "variableDescription": "s:string",
+                                "valueType": "s:string",
+                                "dataType": "s:string",
+                                "generalCategory": "s:string",
+                                "sampleMedium": "s:string",
+                                "unit": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "options": {
+                                    "option[]": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "note[]": "s:string",
+                                "related": {
+                                    "parentCode[]": "s:string",
+                                    "relatedCode[]": "s:string"
+                                },
+                                "extension": {},
+                                "noDataValue": "s:double",
+                                "timeScale": {
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "timeSpacing": "s:float",
+                                    "timeSupport": "s:float"
+                                },
+                                "speciation": "s:string",
+                                "categories": {
+                                    "category[]": {
+                                        "dataValue": "s:decimal",
+                                        "description": "s:string"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "variableProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            }
+        },
+        "WaterOneFlow1": {
+            "GetSites": {
+                "input": {
+                    "site": {
+                        "string[]": "s:string",
+                        "targetNSAlias": "tns",
+                        "targetNamespace": "http://www.cuahsi.org/his/1.1/ws/"
+                    },
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetSitesResult": "s:string"
+                }
+            },
+            "GetSiteInfo": {
+                "input": {
+                    "site": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetSiteInfoResult": "s:string"
+                }
+            },
+            "GetVariableInfo": {
+                "input": {
+                    "variable": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetVariableInfoResult": "s:string"
+                }
+            },
+            "GetSitesObject": {
+                "input": {
+                    "site": {
+                        "string[]": "s:string",
+                        "targetNSAlias": "tns",
+                        "targetNamespace": "http://www.cuahsi.org/his/1.1/ws/"
+                    },
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "sitesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "site[]": {
+                            "siteInfo": {
+                                "siteName": "s:string",
+                                "siteCode[]": {},
+                                "timeZoneInfo": {
+                                    "defaultTimeZone": {},
+                                    "daylightSavingsTimeZone": {}
+                                },
+                                "geoLocation": {
+                                    "geogLocation": {
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "localSiteXY[]": {
+                                        "X": "s:double",
+                                        "Y": "s:double",
+                                        "Z": "s:double",
+                                        "note[]": "s:string"
+                                    }
+                                },
+                                "elevation_m": "s:double",
+                                "verticalDatum": "s:string",
+                                "note[]": "s:string",
+                                "extension": {},
+                                "altname": "s:string",
+                                "siteType[]": "s:string",
+                                "siteProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "seriesCatalog[]": {
+                                "note[]": "s:string",
+                                "series[]": {
+                                    "dataType": "s:string",
+                                    "variable": {
+                                        "variableCode[]": {},
+                                        "variableName": "s:string",
+                                        "variableDescription": "s:string",
+                                        "valueType": "s:string",
+                                        "dataType": "s:string",
+                                        "generalCategory": "s:string",
+                                        "sampleMedium": "s:string",
+                                        "unit": {
+                                            "unitName": "s:string",
+                                            "unitDescription": "s:string",
+                                            "unitType": "s:string",
+                                            "unitAbbreviation": "s:string",
+                                            "unitCode": "s:token",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "options": {
+                                            "option[]": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "note[]": "s:string",
+                                        "related": {
+                                            "parentCode[]": "s:string",
+                                            "relatedCode[]": "s:string"
+                                        },
+                                        "extension": {},
+                                        "noDataValue": "s:double",
+                                        "timeScale": {
+                                            "unit": {
+                                                "unitName": "s:string",
+                                                "unitDescription": "s:string",
+                                                "unitType": "s:string",
+                                                "unitAbbreviation": "s:string",
+                                                "unitCode": "s:token",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "timeSpacing": "s:float",
+                                            "timeSupport": "s:float"
+                                        },
+                                        "speciation": "s:string",
+                                        "categories": {
+                                            "category[]": {
+                                                "dataValue": "s:decimal",
+                                                "description": "s:string"
+                                            },
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "variableProperty[]": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueCount": "s:int",
+                                    "variableTimeInterval": {
+                                        "beginDateTime": "s:dateTime",
+                                        "endDateTime": "s:dateTime",
+                                        "beginDateTimeUTC": "s:dateTime",
+                                        "endDateTimeUTC": "s:dateTime",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueType": "s:string",
+                                    "generalCategory": "s:string",
+                                    "sampleMedium": "s:string",
+                                    "method": {
+                                        "methodCode": "s:token",
+                                        "methodDescription": "s:string",
+                                        "methodLink": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "source": {
+                                        "sourceCode": "s:token",
+                                        "organization": "s:string",
+                                        "sourceDescription": "s:string",
+                                        "metadata": {
+                                            "topicCategory": "s:string",
+                                            "title": "s:string",
+                                            "abstract": "s:string",
+                                            "profileVersion": "s:string",
+                                            "metadataLink": "s:anyURI",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "contactInformation[]": {
+                                            "contactName": "s:string",
+                                            "typeOfContact": "s:normalizedString",
+                                            "email[]": "s:normalizedString",
+                                            "phone[]": "s:string",
+                                            "address[]": {},
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "sourceLink[]": "s:anyURI",
+                                        "citation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "qualityControlLevel": {
+                                        "qualityControlLevelCode": "s:token",
+                                        "definition": "s:string",
+                                        "explanation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "seriesProperty[]": "s:string"
+                                },
+                                "seriesCatalogProperty[]": "s:string",
+                                "extension": {},
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "extension[]": {}
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetSiteInfoObject": {
+                "input": {
+                    "site": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "sitesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "site[]": {
+                            "siteInfo": {
+                                "siteName": "s:string",
+                                "siteCode[]": {},
+                                "timeZoneInfo": {
+                                    "defaultTimeZone": {},
+                                    "daylightSavingsTimeZone": {}
+                                },
+                                "geoLocation": {
+                                    "geogLocation": {
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "localSiteXY[]": {
+                                        "X": "s:double",
+                                        "Y": "s:double",
+                                        "Z": "s:double",
+                                        "note[]": "s:string"
+                                    }
+                                },
+                                "elevation_m": "s:double",
+                                "verticalDatum": "s:string",
+                                "note[]": "s:string",
+                                "extension": {},
+                                "altname": "s:string",
+                                "siteType[]": "s:string",
+                                "siteProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "seriesCatalog[]": {
+                                "note[]": "s:string",
+                                "series[]": {
+                                    "dataType": "s:string",
+                                    "variable": {
+                                        "variableCode[]": {},
+                                        "variableName": "s:string",
+                                        "variableDescription": "s:string",
+                                        "valueType": "s:string",
+                                        "dataType": "s:string",
+                                        "generalCategory": "s:string",
+                                        "sampleMedium": "s:string",
+                                        "unit": {
+                                            "unitName": "s:string",
+                                            "unitDescription": "s:string",
+                                            "unitType": "s:string",
+                                            "unitAbbreviation": "s:string",
+                                            "unitCode": "s:token",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "options": {
+                                            "option[]": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "note[]": "s:string",
+                                        "related": {
+                                            "parentCode[]": "s:string",
+                                            "relatedCode[]": "s:string"
+                                        },
+                                        "extension": {},
+                                        "noDataValue": "s:double",
+                                        "timeScale": {
+                                            "unit": {
+                                                "unitName": "s:string",
+                                                "unitDescription": "s:string",
+                                                "unitType": "s:string",
+                                                "unitAbbreviation": "s:string",
+                                                "unitCode": "s:token",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "timeSpacing": "s:float",
+                                            "timeSupport": "s:float"
+                                        },
+                                        "speciation": "s:string",
+                                        "categories": {
+                                            "category[]": {
+                                                "dataValue": "s:decimal",
+                                                "description": "s:string"
+                                            },
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "variableProperty[]": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueCount": "s:int",
+                                    "variableTimeInterval": {
+                                        "beginDateTime": "s:dateTime",
+                                        "endDateTime": "s:dateTime",
+                                        "beginDateTimeUTC": "s:dateTime",
+                                        "endDateTimeUTC": "s:dateTime",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueType": "s:string",
+                                    "generalCategory": "s:string",
+                                    "sampleMedium": "s:string",
+                                    "method": {
+                                        "methodCode": "s:token",
+                                        "methodDescription": "s:string",
+                                        "methodLink": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "source": {
+                                        "sourceCode": "s:token",
+                                        "organization": "s:string",
+                                        "sourceDescription": "s:string",
+                                        "metadata": {
+                                            "topicCategory": "s:string",
+                                            "title": "s:string",
+                                            "abstract": "s:string",
+                                            "profileVersion": "s:string",
+                                            "metadataLink": "s:anyURI",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "contactInformation[]": {
+                                            "contactName": "s:string",
+                                            "typeOfContact": "s:normalizedString",
+                                            "email[]": "s:normalizedString",
+                                            "phone[]": "s:string",
+                                            "address[]": {},
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "sourceLink[]": "s:anyURI",
+                                        "citation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "qualityControlLevel": {
+                                        "qualityControlLevelCode": "s:token",
+                                        "definition": "s:string",
+                                        "explanation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "seriesProperty[]": "s:string"
+                                },
+                                "seriesCatalogProperty[]": "s:string",
+                                "extension": {},
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "extension[]": {}
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetVariableInfoObject": {
+                "input": {
+                    "variable": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "variablesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "variables": {
+                            "variable[]": {
+                                "variableCode[]": {},
+                                "variableName": "s:string",
+                                "variableDescription": "s:string",
+                                "valueType": "s:string",
+                                "dataType": "s:string",
+                                "generalCategory": "s:string",
+                                "sampleMedium": "s:string",
+                                "unit": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "options": {
+                                    "option[]": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "note[]": "s:string",
+                                "related": {
+                                    "parentCode[]": "s:string",
+                                    "relatedCode[]": "s:string"
+                                },
+                                "extension": {},
+                                "noDataValue": "s:double",
+                                "timeScale": {
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "timeSpacing": "s:float",
+                                    "timeSupport": "s:float"
+                                },
+                                "speciation": "s:string",
+                                "categories": {
+                                    "category[]": {
+                                        "dataValue": "s:decimal",
+                                        "description": "s:string"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "variableProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    }
+                }
+            },
+            "GetValues": {
+                "input": {
+                    "location": "s:string",
+                    "variable": "s:string",
+                    "startDate": "s:string",
+                    "endDate": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetValuesResult": "s:string"
+                }
+            },
+            "GetValuesObject": {
+                "input": {
+                    "location": "s:string",
+                    "variable": "s:string",
+                    "startDate": "s:string",
+                    "endDate": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "timeSeriesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "timeSeries[]": {
+                            "sourceInfo": {
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "variable": {
+                                "variableCode[]": {},
+                                "variableName": "s:string",
+                                "variableDescription": "s:string",
+                                "valueType": "s:string",
+                                "dataType": "s:string",
+                                "generalCategory": "s:string",
+                                "sampleMedium": "s:string",
+                                "unit": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "options": {
+                                    "option[]": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "note[]": "s:string",
+                                "related": {
+                                    "parentCode[]": "s:string",
+                                    "relatedCode[]": "s:string"
+                                },
+                                "extension": {},
+                                "noDataValue": "s:double",
+                                "timeScale": {
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "timeSpacing": "s:float",
+                                    "timeSupport": "s:float"
+                                },
+                                "speciation": "s:string",
+                                "categories": {
+                                    "category[]": {
+                                        "dataValue": "s:decimal",
+                                        "description": "s:string"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "variableProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "values[]": {
+                                "value[]": "s:decimal",
+                                "units": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "qualifier[]": {
+                                    "qualifierCode": "s:token",
+                                    "qualifierDescription": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "qualityControlLevel[]": {
+                                    "qualityControlLevelCode": "s:token",
+                                    "definition": "s:string",
+                                    "explanation": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "method[]": {
+                                    "methodCode": "s:token",
+                                    "methodDescription": "s:string",
+                                    "methodLink": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "source[]": {
+                                    "sourceCode": "s:token",
+                                    "organization": "s:string",
+                                    "sourceDescription": "s:string",
+                                    "metadata": {
+                                        "topicCategory": "s:string",
+                                        "title": "s:string",
+                                        "abstract": "s:string",
+                                        "profileVersion": "s:string",
+                                        "metadataLink": "s:anyURI",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "contactInformation[]": {
+                                        "contactName": "s:string",
+                                        "typeOfContact": "s:normalizedString",
+                                        "email[]": "s:normalizedString",
+                                        "phone[]": "s:string",
+                                        "address[]": {},
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "sourceLink[]": "s:anyURI",
+                                    "citation": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "offset[]": {
+                                    "offsetTypeCode": "s:token",
+                                    "offsetValue": "s:float",
+                                    "offsetDescription": "s:string",
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "offsetIsVertical": "s:boolean",
+                                    "offsetAzimuthDegrees": "s:int",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "sample[]": {
+                                    "labSampleCode": "s:normalizedString",
+                                    "sampleType": "s:string",
+                                    "labMethod": {
+                                        "labCode": "s:token",
+                                        "labName": "s:string",
+                                        "labOrganization": "s:string",
+                                        "labMethodName": "s:string",
+                                        "labMethodDescription": "s:string",
+                                        "labMethodLink": "s:string",
+                                        "labSourceDetails": {
+                                            "sourceCode": "s:token",
+                                            "organization": "s:string",
+                                            "sourceDescription": "s:string",
+                                            "metadata": {
+                                                "topicCategory": "s:string",
+                                                "title": "s:string",
+                                                "abstract": "s:string",
+                                                "profileVersion": "s:string",
+                                                "metadataLink": "s:anyURI",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "contactInformation[]": {
+                                                "contactName": "s:string",
+                                                "typeOfContact": "s:normalizedString",
+                                                "email[]": "s:normalizedString",
+                                                "phone[]": "s:string",
+                                                "address[]": {},
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "sourceLink[]": "s:anyURI",
+                                            "citation": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "censorCode[]": {
+                                    "censorCode": "s:string",
+                                    "censorCodeDescription": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    }
+                }
+            },
+            "GetSiteInfoMultpleObject": {
+                "input": {
+                    "site": {
+                        "string[]": "s:string",
+                        "targetNSAlias": "tns",
+                        "targetNamespace": "http://www.cuahsi.org/his/1.1/ws/"
+                    },
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "sitesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "site[]": {
+                            "siteInfo": {
+                                "siteName": "s:string",
+                                "siteCode[]": {},
+                                "timeZoneInfo": {
+                                    "defaultTimeZone": {},
+                                    "daylightSavingsTimeZone": {}
+                                },
+                                "geoLocation": {
+                                    "geogLocation": {
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "localSiteXY[]": {
+                                        "X": "s:double",
+                                        "Y": "s:double",
+                                        "Z": "s:double",
+                                        "note[]": "s:string"
+                                    }
+                                },
+                                "elevation_m": "s:double",
+                                "verticalDatum": "s:string",
+                                "note[]": "s:string",
+                                "extension": {},
+                                "altname": "s:string",
+                                "siteType[]": "s:string",
+                                "siteProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "seriesCatalog[]": {
+                                "note[]": "s:string",
+                                "series[]": {
+                                    "dataType": "s:string",
+                                    "variable": {
+                                        "variableCode[]": {},
+                                        "variableName": "s:string",
+                                        "variableDescription": "s:string",
+                                        "valueType": "s:string",
+                                        "dataType": "s:string",
+                                        "generalCategory": "s:string",
+                                        "sampleMedium": "s:string",
+                                        "unit": {
+                                            "unitName": "s:string",
+                                            "unitDescription": "s:string",
+                                            "unitType": "s:string",
+                                            "unitAbbreviation": "s:string",
+                                            "unitCode": "s:token",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "options": {
+                                            "option[]": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "note[]": "s:string",
+                                        "related": {
+                                            "parentCode[]": "s:string",
+                                            "relatedCode[]": "s:string"
+                                        },
+                                        "extension": {},
+                                        "noDataValue": "s:double",
+                                        "timeScale": {
+                                            "unit": {
+                                                "unitName": "s:string",
+                                                "unitDescription": "s:string",
+                                                "unitType": "s:string",
+                                                "unitAbbreviation": "s:string",
+                                                "unitCode": "s:token",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "timeSpacing": "s:float",
+                                            "timeSupport": "s:float"
+                                        },
+                                        "speciation": "s:string",
+                                        "categories": {
+                                            "category[]": {
+                                                "dataValue": "s:decimal",
+                                                "description": "s:string"
+                                            },
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "variableProperty[]": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueCount": "s:int",
+                                    "variableTimeInterval": {
+                                        "beginDateTime": "s:dateTime",
+                                        "endDateTime": "s:dateTime",
+                                        "beginDateTimeUTC": "s:dateTime",
+                                        "endDateTimeUTC": "s:dateTime",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueType": "s:string",
+                                    "generalCategory": "s:string",
+                                    "sampleMedium": "s:string",
+                                    "method": {
+                                        "methodCode": "s:token",
+                                        "methodDescription": "s:string",
+                                        "methodLink": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "source": {
+                                        "sourceCode": "s:token",
+                                        "organization": "s:string",
+                                        "sourceDescription": "s:string",
+                                        "metadata": {
+                                            "topicCategory": "s:string",
+                                            "title": "s:string",
+                                            "abstract": "s:string",
+                                            "profileVersion": "s:string",
+                                            "metadataLink": "s:anyURI",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "contactInformation[]": {
+                                            "contactName": "s:string",
+                                            "typeOfContact": "s:normalizedString",
+                                            "email[]": "s:normalizedString",
+                                            "phone[]": "s:string",
+                                            "address[]": {},
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "sourceLink[]": "s:anyURI",
+                                        "citation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "qualityControlLevel": {
+                                        "qualityControlLevelCode": "s:token",
+                                        "definition": "s:string",
+                                        "explanation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "seriesProperty[]": "s:string"
+                                },
+                                "seriesCatalogProperty[]": "s:string",
+                                "extension": {},
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "extension[]": {}
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetSitesByBoxObject": {
+                "input": {
+                    "west": "s:float",
+                    "south": "s:float",
+                    "east": "s:float",
+                    "north": "s:float",
+                    "IncludeSeries": "s:boolean",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "sitesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "site[]": {
+                            "siteInfo": {
+                                "siteName": "s:string",
+                                "siteCode[]": {},
+                                "timeZoneInfo": {
+                                    "defaultTimeZone": {},
+                                    "daylightSavingsTimeZone": {}
+                                },
+                                "geoLocation": {
+                                    "geogLocation": {
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "localSiteXY[]": {
+                                        "X": "s:double",
+                                        "Y": "s:double",
+                                        "Z": "s:double",
+                                        "note[]": "s:string"
+                                    }
+                                },
+                                "elevation_m": "s:double",
+                                "verticalDatum": "s:string",
+                                "note[]": "s:string",
+                                "extension": {},
+                                "altname": "s:string",
+                                "siteType[]": "s:string",
+                                "siteProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "seriesCatalog[]": {
+                                "note[]": "s:string",
+                                "series[]": {
+                                    "dataType": "s:string",
+                                    "variable": {
+                                        "variableCode[]": {},
+                                        "variableName": "s:string",
+                                        "variableDescription": "s:string",
+                                        "valueType": "s:string",
+                                        "dataType": "s:string",
+                                        "generalCategory": "s:string",
+                                        "sampleMedium": "s:string",
+                                        "unit": {
+                                            "unitName": "s:string",
+                                            "unitDescription": "s:string",
+                                            "unitType": "s:string",
+                                            "unitAbbreviation": "s:string",
+                                            "unitCode": "s:token",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "options": {
+                                            "option[]": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "note[]": "s:string",
+                                        "related": {
+                                            "parentCode[]": "s:string",
+                                            "relatedCode[]": "s:string"
+                                        },
+                                        "extension": {},
+                                        "noDataValue": "s:double",
+                                        "timeScale": {
+                                            "unit": {
+                                                "unitName": "s:string",
+                                                "unitDescription": "s:string",
+                                                "unitType": "s:string",
+                                                "unitAbbreviation": "s:string",
+                                                "unitCode": "s:token",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "timeSpacing": "s:float",
+                                            "timeSupport": "s:float"
+                                        },
+                                        "speciation": "s:string",
+                                        "categories": {
+                                            "category[]": {
+                                                "dataValue": "s:decimal",
+                                                "description": "s:string"
+                                            },
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "variableProperty[]": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueCount": "s:int",
+                                    "variableTimeInterval": {
+                                        "beginDateTime": "s:dateTime",
+                                        "endDateTime": "s:dateTime",
+                                        "beginDateTimeUTC": "s:dateTime",
+                                        "endDateTimeUTC": "s:dateTime",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "valueType": "s:string",
+                                    "generalCategory": "s:string",
+                                    "sampleMedium": "s:string",
+                                    "method": {
+                                        "methodCode": "s:token",
+                                        "methodDescription": "s:string",
+                                        "methodLink": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "source": {
+                                        "sourceCode": "s:token",
+                                        "organization": "s:string",
+                                        "sourceDescription": "s:string",
+                                        "metadata": {
+                                            "topicCategory": "s:string",
+                                            "title": "s:string",
+                                            "abstract": "s:string",
+                                            "profileVersion": "s:string",
+                                            "metadataLink": "s:anyURI",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "contactInformation[]": {
+                                            "contactName": "s:string",
+                                            "typeOfContact": "s:normalizedString",
+                                            "email[]": "s:normalizedString",
+                                            "phone[]": "s:string",
+                                            "address[]": {},
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "sourceLink[]": "s:anyURI",
+                                        "citation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "qualityControlLevel": {
+                                        "qualityControlLevelCode": "s:token",
+                                        "definition": "s:string",
+                                        "explanation": "s:string",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "seriesProperty[]": "s:string"
+                                },
+                                "seriesCatalogProperty[]": "s:string",
+                                "extension": {},
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "extension[]": {}
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetValuesForASiteObject": {
+                "input": {
+                    "site": "s:string",
+                    "startDate": "s:string",
+                    "endDate": "s:string",
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "timeSeriesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "timeSeries[]": {
+                            "sourceInfo": {
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "variable": {
+                                "variableCode[]": {},
+                                "variableName": "s:string",
+                                "variableDescription": "s:string",
+                                "valueType": "s:string",
+                                "dataType": "s:string",
+                                "generalCategory": "s:string",
+                                "sampleMedium": "s:string",
+                                "unit": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "options": {
+                                    "option[]": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "note[]": "s:string",
+                                "related": {
+                                    "parentCode[]": "s:string",
+                                    "relatedCode[]": "s:string"
+                                },
+                                "extension": {},
+                                "noDataValue": "s:double",
+                                "timeScale": {
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "timeSpacing": "s:float",
+                                    "timeSupport": "s:float"
+                                },
+                                "speciation": "s:string",
+                                "categories": {
+                                    "category[]": {
+                                        "dataValue": "s:decimal",
+                                        "description": "s:string"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "variableProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "values[]": {
+                                "value[]": "s:decimal",
+                                "units": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "qualifier[]": {
+                                    "qualifierCode": "s:token",
+                                    "qualifierDescription": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "qualityControlLevel[]": {
+                                    "qualityControlLevelCode": "s:token",
+                                    "definition": "s:string",
+                                    "explanation": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "method[]": {
+                                    "methodCode": "s:token",
+                                    "methodDescription": "s:string",
+                                    "methodLink": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "source[]": {
+                                    "sourceCode": "s:token",
+                                    "organization": "s:string",
+                                    "sourceDescription": "s:string",
+                                    "metadata": {
+                                        "topicCategory": "s:string",
+                                        "title": "s:string",
+                                        "abstract": "s:string",
+                                        "profileVersion": "s:string",
+                                        "metadataLink": "s:anyURI",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "contactInformation[]": {
+                                        "contactName": "s:string",
+                                        "typeOfContact": "s:normalizedString",
+                                        "email[]": "s:normalizedString",
+                                        "phone[]": "s:string",
+                                        "address[]": {},
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "sourceLink[]": "s:anyURI",
+                                    "citation": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "offset[]": {
+                                    "offsetTypeCode": "s:token",
+                                    "offsetValue": "s:float",
+                                    "offsetDescription": "s:string",
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "offsetIsVertical": "s:boolean",
+                                    "offsetAzimuthDegrees": "s:int",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "sample[]": {
+                                    "labSampleCode": "s:normalizedString",
+                                    "sampleType": "s:string",
+                                    "labMethod": {
+                                        "labCode": "s:token",
+                                        "labName": "s:string",
+                                        "labOrganization": "s:string",
+                                        "labMethodName": "s:string",
+                                        "labMethodDescription": "s:string",
+                                        "labMethodLink": "s:string",
+                                        "labSourceDetails": {
+                                            "sourceCode": "s:token",
+                                            "organization": "s:string",
+                                            "sourceDescription": "s:string",
+                                            "metadata": {
+                                                "topicCategory": "s:string",
+                                                "title": "s:string",
+                                                "abstract": "s:string",
+                                                "profileVersion": "s:string",
+                                                "metadataLink": "s:anyURI",
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "contactInformation[]": {
+                                                "contactName": "s:string",
+                                                "typeOfContact": "s:normalizedString",
+                                                "email[]": "s:normalizedString",
+                                                "phone[]": "s:string",
+                                                "address[]": {},
+                                                "targetNSAlias": "s1",
+                                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                            },
+                                            "sourceLink[]": "s:anyURI",
+                                            "citation": "s:string",
+                                            "targetNSAlias": "s1",
+                                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                        },
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "censorCode[]": {
+                                    "censorCode": "s:string",
+                                    "censorCodeDescription": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            },
+            "GetVariables": {
+                "input": {
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "GetVariablesResult": "s:string"
+                }
+            },
+            "GetVariablesObject": {
+                "input": {
+                    "authToken": "s:string"
+                },
+                "output": {
+                    "variablesResponse": {
+                        "queryInfo": {
+                            "creationTime": "s:dateTime",
+                            "queryURL": "s:string",
+                            "criteria": {
+                                "locationParam": "s:string",
+                                "variableParam": "s:string",
+                                "timeParam": {
+                                    "beginDateTime": "s:string",
+                                    "endDateTime": "s:string"
+                                },
+                                "parameter[]": {}
+                            },
+                            "note[]": "s:string",
+                            "extension": {},
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "variables": {
+                            "variable[]": {
+                                "variableCode[]": {},
+                                "variableName": "s:string",
+                                "variableDescription": "s:string",
+                                "valueType": "s:string",
+                                "dataType": "s:string",
+                                "generalCategory": "s:string",
+                                "sampleMedium": "s:string",
+                                "unit": {
+                                    "unitName": "s:string",
+                                    "unitDescription": "s:string",
+                                    "unitType": "s:string",
+                                    "unitAbbreviation": "s:string",
+                                    "unitCode": "s:token",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "options": {
+                                    "option[]": "s:string",
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "note[]": "s:string",
+                                "related": {
+                                    "parentCode[]": "s:string",
+                                    "relatedCode[]": "s:string"
+                                },
+                                "extension": {},
+                                "noDataValue": "s:double",
+                                "timeScale": {
+                                    "unit": {
+                                        "unitName": "s:string",
+                                        "unitDescription": "s:string",
+                                        "unitType": "s:string",
+                                        "unitAbbreviation": "s:string",
+                                        "unitCode": "s:token",
+                                        "targetNSAlias": "s1",
+                                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                    },
+                                    "timeSpacing": "s:float",
+                                    "timeSupport": "s:float"
+                                },
+                                "speciation": "s:string",
+                                "categories": {
+                                    "category[]": {
+                                        "dataValue": "s:decimal",
+                                        "description": "s:string"
+                                    },
+                                    "targetNSAlias": "s1",
+                                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                                },
+                                "variableProperty[]": "s:string",
+                                "targetNSAlias": "s1",
+                                "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                            },
+                            "targetNSAlias": "s1",
+                            "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                        },
+                        "targetNSAlias": "s1",
+                        "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                    },
+                    "targetNSAlias": "s1",
+                    "targetNamespace": "http://www.cuahsi.org/waterML/1.1/"
+                }
+            }
+        }
+    }
+}

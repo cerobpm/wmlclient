@@ -1,0 +1,5 @@
+{
+    "XMLFault": {
+        "faultstring": "java.lang.NullPointerException"
+    }
+}

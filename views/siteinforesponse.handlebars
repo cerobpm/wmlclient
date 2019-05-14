@@ -1,0 +1,107 @@
+<p><a href="sites?endpoint={{endpoint}}">Volver a sites</a></p>
+<h3>GetSiteInfoObject</h3>
+<form method=GET>
+	<label for="endpoint">Service endpoint</label>
+	<input type=text title="WaterOneFlow WaterML Service URL" name=endpoint id=endpoint value={{endpoint}}></input><br>
+	<label for="site">site</label>
+	<input type=text title="site code" name=site value={{site}}></input><br>
+	<input type=radio name=accion value=downloadraw>Descargar archivo WaterML</input><br>
+	<input type=radio name=accion value=download>Descargar archivo JSON</input><br>
+	<input type=radio name=accion value=listado selected>Ver listado aquí</input><br>
+	<input type=submit />
+</form>
+
+<h4>Results:</h4>
+<table id=results class=results>
+  <tr>
+    <th>siteName</th>
+    <th>siteCode</th>
+    <th>network</th>
+    <th>longitude</th>
+    <th>latitude</th>
+    <th>variableCode</th>
+	<th>variableName</th>
+	<th>valueType</th>
+	<th>dataType</th>
+	<th>generalCategory</th>
+	<th>sampleMedium</th>
+	<th>unitName</th>
+	<th>unitType</th>
+	<th>unitAbbreviation</th>
+	<th>unitCode</th>
+	<th>noDataValue</th>
+	<th>timeScaleIsRegular</th>
+	<th>timeScaleUnitName</th>
+	<th>timeScaleUnitType</th>
+	<th>timeScaleUnitAbbreviation</th>
+	<th>timeScaleUnitCode</th>
+	<th>timeScaleTimeSupport</th>
+	<th>speciation</th>
+	<th>valueCount</th>
+	<th>beginDateTime</th>
+	<th>endDateTime</th>
+	<th>beginDateTimeUTC</th>
+	<th>endDateTimeUTC</th>
+	<th>methodId</th>
+	<th>methodCode</th>
+	<th>methodDescription</th>
+	<th>methodLink</th>
+	<th>sourceID</th>
+	<th>organization</th>
+	<th>citation</th>
+	<th>qualityControlLevelID</th>
+	<th>qualityControlLevelCode</th>
+	<th>qualityControlLevelDefinition</th>
+
+</tr>
+ {{#each results}}
+<tr onclick=getvalues('{{siteCode}}','{{variableCode}}') title="click to getSiteInfo">
+ <td>{{siteName}}</td>
+ <td>{{siteCode}}</td>
+ <td>{{network}}</td>
+ <td>{{longitude}}</td>
+ <td>{{latitude}}</td>
+	<td>{{variableCode}}</td>
+	<td>{{variableName}}</td>
+	<td>{{valueType}}</td>
+	<td>{{dataType}}</td>
+	<td>{{generalCategory}}</td>
+	<td>{{sampleMedium}}</td>
+	<td>{{unitName}}</td>
+	<td>{{unitType}}</td>
+	<td>{{unitAbbreviation}}</td>
+	<td>{{unitCode}}</td>
+	<td>{{noDataValue}}</td>
+	<td>{{timeScaleIsRegular}}</td>
+	<td>{{timeScaleUnitName}}</td>
+	<td>{{timeScaleUnitType}}</td>
+	<td>{{timeScaleUnitAbbreviation}}</td>
+	<td>{{timeScaleUnitCode}}</td>
+	<td>{{timeScaleTimeSupport}}</td>
+	<td>{{speciation}}</td>
+	<td>{{valueCount}}</td>
+	<td>{{beginDateTime}}</td>
+	<td>{{endDateTime}}</td>
+	<td>{{beginDateTimeUTC}}</td>
+	<td>{{endDateTimeUTC}}</td>
+	<td>{{methodId}}</td>
+	<td>{{methodCode}}</td>
+	<td>{{methodDescription}}</td>
+	<td>{{methodLink}}</td>
+	<td>{{sourceID}}</td>
+	<td>{{organization}}</td>
+	<td>{{citation}}</td>
+	<td>{{qualityControlLevelID}}</td>
+	<td>{{qualityControlLevelCode}}</td>
+	<td>{{qualityControlLevelDefinition}}</td>
+</tr>
+{{/each}}
+</table>
+<script type=text/javascript>
+  function getvalues(site,variable) {
+    var endpoint = document.getElementById("endpoint").value;
+    console.log("getvalues: endpoint: " + endpoint + ", site:" + site + ", variable: " + variable);
+    window.open("/wmlclient/values?endpoint=" + endpoint + "&site=" + site + "&variable=" + variable, "_self");
+    return;
+   }
+</script>

@@ -1,0 +1,44 @@
+<p><a href=../wmlclient>Volver al inicio</a></p>
+<h3>GetSitesByBoxObject</h3>
+<form method=GET>
+	<label for="endpoint">Service endpoint</label>
+	<input id=endpoint type=text title="WaterOneFlow WaterML Service URL" name=endpoint value={{endpoint}} /><br>
+	<label for="north">north</label>
+	<input type=text title="latitude of north bound" name=north value=-33 /><br>
+	<label for="south">south</label>
+	<input type=text title="latitude of south bound" name=south value=-35 /><br>
+	<label for="east">east</label>
+	<input type=text title="longitude of east bound" name=east value=-55 /><br>
+	<label for="west">west</label>
+	<input type=text title="longitude of west bound" name=west value=-57 /><br>
+	<input type=radio name=accion value=downloadraw>Descargar archivo WaterML</input><br>
+	<input type=radio name=accion value=download>Descargar archivo JSON</input><br>
+	<input type=radio name=accion value=listado selected>Ver listado aquí</input><br>
+	<input type=submit />
+</form>
+
+<h4>Results:</h4>
+<table id=results class=results>
+  <tr>
+    <th>siteName</th>
+    <th>siteCode</th>
+    <th>network</th>
+    <th>longitude</th>
+    <th>latitude</th>
+</tr>
+ {{#each results}}
+<tr onclick=getsiteinfo('{{siteCode}}') title="click to getSiteInfo">
+ <td>{{siteName}}</td>
+ <td>{{siteCode}}</td>
+ <td>{{network}}</td>
+ <td>{{longitude}}</td>
+ <td>{{latitude}}</td>
+</tr>
+{{/each}}
+</table>
+<script type=text/javascript>
+  function getsiteinfo(site) {
+    var endpoint = document.getElementById("endpoint").value;
+    window.open("/wmlclient/siteinfo?endpoint=" + endpoint + "&site=" + site, "_self");
+   }
+</script>
