@@ -16,4 +16,12 @@
 	<input type=radio name=accion value=listado selected>Ver listado aquí</input><br>
 	<input type=submit />
 </form>
-<p id=response>No results found!</p>
+{{#if metadata}}
+	<h4>Time Series Info</h4>
+	<table id=metadata class=results>
+		{{#each metadata}}
+			<tr><th>{{@key}}</th><td>{{this}}</td></tr>
+		{{/each}}
+	</table>
+{{/if}}	
+<p id=response>No data values found!</p>

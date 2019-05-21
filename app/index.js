@@ -10,7 +10,28 @@ const bodyParser = require('body-parser')
 const Table = require('table-builder')
 const request = require('request')
 const xml = require('xml')
-let soap_client_options = { 'request' : request.defaults({'proxy': 'http://jbianchi:jbianchi@10.10.10.119:3128', 'timeout': 5000, 'connection': 'keep-alive'})}
+const { Client } = require('pg')
+const dbclient = new Client({database: 'odm', user: 'wmlclient', password: 'wmlclient'})
+//~ const pgp = require('pg-promise')()
+//~ const pgpclient = pgp({database: 'odm', user: 'wmlclient', password: 'wmlclient'})
+const odmpg = require('./odmpg.js')
+var insertSites = odmpg.insertSites
+var insertSiteInfo = odmpg.insertSiteInfo
+var insertValues =odmpg.insertValues
+dbclient.connect((err) => {
+if (err) {
+    console.error('connection error', err.stack)
+  } else {
+    console.log('connected')
+    dbclient.query('SELECT NOW() as now', (err, res) => {
+	  if(err) {
+		  console.log(err.stack)
+	  } else {
+		  console.log(res.rows[0])
+	  }
+	})
+}})
+let soap_client_options = { 'request' : request.defaults({'proxy': 'http://jbianchi:jbianchi@10.10.10.119:3128', 'timeout': 20000, 'connection': 'keep-alive'})}
 //~ const { body,validationResult } = require('express-validator/check');
 //~ const { sanitizeBody } = require('express-validator/filter');
 var gicat_url = 'http://giaxe.inmet.gov.br/services/cuahsi_1_1.asmx?WSDL';
@@ -37,12 +58,29 @@ app.get('/wmlclient/sites', (req, res) => {
 			}
 			client.GetSitesByBoxObject({north: req.query.north, south: req.query.south, east: req.query.east, west: req.query.west}, function(err, result, rawResponse) {
 			  if(err) {
-				  res.json(err)
+				  res.status(500).json({message:"waterML server error",error:err})
 				  console.log(err)
 				  return 
 			  }
-			  //~ console.log(JSON.stringify(result,null,2))
-			  if(req.query.accion == "download") {
+			  console.log(client.lastRequest)
+			  if(req.query.accion == "insert") {
+				  var update = (req.query.update) ? req.query.update : false
+				  insertSites(dbclient,result,update)
+					.then(values => {
+						if(values.rows) {
+							res.json({message:"insertion success",rows_inserted:values.rows.length})
+							return
+						} else {
+						  console.log("empty pg response")
+						  res.status("500").send({error:"nothing inserted"})
+						}
+					})
+					.catch(e => {
+						console.log("error in insertion")
+						res.status("500").send({message:"error in insertion",error:e})
+					})
+				return
+			  } else if(req.query.accion == "download") {
 			  //~ DATA DOWNLOAD   
 				//~ if(req.query.format) {
 					//~ if(req.query.format.toLowerCase() == 'xml') {
@@ -52,15 +90,16 @@ app.get('/wmlclient/sites', (req, res) => {
 						//~ res.json(result)
 					//~ }
 				//~ } else {
-				res.setHeader('Content-disposition', 'attachment; filename=sites.json');
-				res.json(result)
+				//~ res.setHeader('Content-disposition', 'attachment; filename=sites.json');
+				res.download(result)
 				//~ }
 				return
 			  } else if (req.query.accion == "downloadraw") {
-				res.setHeader('Content-disposition', 'attachment; filename=sites.xml');
+				//~ res.setHeader('Content-disposition', 'attachment; filename=sites.xml');
+				console.log("download raw")
 				res.send(rawResponse)
 				return 
-			  }
+			  } 
 			  var renderlist = []
 			  //~ var ulist = "<
 			  if(result.sitesResponse.hasOwnProperty("site")) {
@@ -76,12 +115,15 @@ app.get('/wmlclient/sites', (req, res) => {
 			  }
 		  })
 		})
-	}	else {
+	} else if (req.query.endpoint) {
+		res.render('sites', {endpoint: req.query.endpoint})
+	} else {
 		res.render('sites', {endpoint: gicat_url})
 	}
 	console.log('sites form displayed')
 
 })
+
 app.get('/wmlclient/siteinfo', (req, res) => {
 	if(req.query.endpoint && req.query.site) {
 		console.log("siteinfo, got endpoint and site")
@@ -98,8 +140,23 @@ app.get('/wmlclient/siteinfo', (req, res) => {
 				  console.log(err)
 				  return 
 			  }
-			  //~ console.log(JSON.stringify(result,null,2))
-			  if(req.query.accion == "download") {	
+			  if(req.query.accion == "insert") {
+				  var update = (req.query.update) ? req.query.update : false
+				  var promises = []
+				  promises.push(insertSites(dbclient,result,update))
+				  promises.push(insertSiteInfo(dbclient,result,update))
+				  Promise.all(promises)
+					.then(values => {
+						//~ console.log(values)
+						res.json(values)
+					})
+					.catch(e => {
+						console.log("insert error catched")
+						//~ console.log(e)
+						res.status(500).json(e)
+					})
+				  return
+			  } else if(req.query.accion == "download") {	
 				  res.setHeader('Content-disposition', 'attachment; filename=siteinfo.json');
 				  res.json(result)
 				  return
@@ -117,7 +174,7 @@ app.get('/wmlclient/siteinfo', (req, res) => {
 							site.seriesCatalog[0].series.forEach(function(item) {
 								renderlist.push({
 											...siteinfo, 
-											variableCode: item.variable.variableCode[0].attributes.vocabulary + ":" + item.variable.variableCode[0].attributes.variableID, 
+											variableCode: (item.variable.variableCode[0].$value) ? item.variable.variableCode[0].$value : item.variable.variableCode[0].attributes.vocabulary + ":" + item.variable.variableCode[0].attributes.variableID, 
 									         variableName: item.variable.variableName,
 									         valueType: item.variable.valueType,
 									         dataType: item.variable.dataType,
@@ -129,27 +186,27 @@ app.get('/wmlclient/siteinfo', (req, res) => {
 									         unitCode: item.variable.unit.unitCode,
 									         noDataValue: item.variable.noDataValue,
 									         timeScaleIsRegular: item.variable.timeScale.attributes.isRegular,
-									         timeScaleUnitName: item.variable.timeScale.unit.unitName,
-									         timeScaleUnitType: item.variable.timeScale.unit.unitType,
-									         timeScaleUnitAbbreviation: item.variable.timeScale.unit.unitAbbreviation,
-									         timeScaleUnitCode: item.variable.timeScale.unit.unitCode,
-									         timeScaleTimeSupport: item.variable.timeScale.timeSupport,
+									         timeScaleUnitName: (item.variable.timeScale.unit) ? item.variable.timeScale.unit.unitName : null,
+									         timeScaleUnitType: (item.variable.timeScale.unit) ? item.variable.timeScale.unit.unitType : null,
+									         timeScaleUnitAbbreviation: (item.variable.timeScale.unit) ? item.variable.timeScale.unit.unitAbbreviation : null,
+									         timeScaleUnitCode: (item.variable.timeScale.unit) ? item.variable.timeScale.unit.unitCode : null,
+									         timeScaleTimeSupport: (item.variable.timeScale.timeSupport) ? item.variable.timeScale.timeSupport : null,
 									         speciation: item.variable.speciation,
 									         valueCount: item.valueCount,
 									         beginDateTime: item.variableTimeInterval.beginDateTime,
 									         endDateTime: item.variableTimeInterval.endDateTime,
 									         beginDateTimeUTC: item.variableTimeInterval.beginDateTimeUTC,
 									         endDateTimeUTC: item.variableTimeInterval.endDateTimeUTC,
-									         methodId: item.method.attributes.methodID,
-									         methodCode: item.method.methodCode,
-									         methodDescription: item.method.methodDescription,
-									         methodLink: item.method.methodLink,
+									         methodId: (item.method) ? item.method.attributes.methodID : null,
+									         methodCode: (item.method) ? item.method.methodCode: null,
+									         methodDescription: (item.method) ? item.method.methodDescription : null,
+									         methodLink: (item.method) ? item.method.methodLink : null,
 									         sourceID: item.source.attributes.sourceID,
 									         organization: item.source.organization,
 									         citation: item.source.citation,
-									         qualityControlLevelID: item.qualityControlLevel.attributes.qualityControlLevelID,
-									         qualityControlLevelCode: item.qualityControlLevel.qualityControlLevelCode,
-									         qualityControlLevelDefinition: item.qualityControlLevel.definition})
+									         qualityControlLevelID: (item.qualityControlLevel) ? item.qualityControlLevel.attributes.qualityControlLevelID : null,
+									         qualityControlLevelCode: (item.qualityControlLevel) ? item.qualityControlLevel.qualityControlLevelCode : null,
+									         qualityControlLevelDefinition: (item.qualityControlLevel) ? item.qualityControlLevel.definition : null})
 							})
 						}
 					}
@@ -185,12 +242,44 @@ app.get('/wmlclient/values', (req, res) => {
 			client.GetValuesObject({location: req.query.site, variable: req.query.variable, startDate: req.query.startDate, endDate: req.query.endDate}, function(err, result, rawResponse) {
 			  if(err) {
 				  //~ res.json(err)
-				  res.render('valuesemptyresponse', { endpoint: req.query.endpoint, site: req.query.site, varibable: req.query.variable, startDate: req.query.startDate, endDate:req.query. endDate, results: renderlist, metadata: timeSeriesInfo } )
-				  console.log('download error, code: ' + err.response.statusCode)
+				  console.log(err.stack)
+				  switch(req.query.accion) {
+					  case "download":
+						res.status(500).json({message:"download error",error:err})
+						break
+					  case "downloadraw":
+					    res.set('Content-Type', 'text/xml')
+                        res.status(500).send(xml(err))
+                        break
+                      case "insert":
+                        res.status(500).json({message:"download error",error:err})
+						break
+					  default:
+						  res.render('valuesemptyresponse', { endpoint: req.query.endpoint, site: req.query.site, variable: req.query.variable, startDate: req.query.startDate, endDate:req.query. endDate, results: renderlist, metadata: timeSeriesInfo } )
+						  console.log(err.stack)
+						  break
+				  }
 				  return 
 			  }
 			  //~ console.log(JSON.stringify(result,null,2))
-			  if(req.query.accion == "download") {	
+			   if(req.query.accion == "insert") {
+				  var update = (req.query.update) ? req.query.update : false
+				  var promises = []
+				  //~ promises.push(insertSites(dbclient,result,update))
+				  //~ promises.push(insertSiteInfo(dbclient,result,update))
+				  promises.push(insertValues(dbclient,result,update))
+				  Promise.all(promises)
+					.then(values => {
+						//~ console.log(values)
+						res.json(values)
+					})
+					.catch(e => {
+						console.log("insert error catched")
+						console.log(e.stack)
+						res.status(500).json(e)
+					})
+				  return
+			  } else if(req.query.accion == "download") {	
 				  res.setHeader('Content-disposition', 'attachment; filename=values.json');
 				  res.json(result)
 				  return
@@ -206,13 +295,13 @@ app.get('/wmlclient/values', (req, res) => {
 					  console.log("timeSeries es array!")
 					  result.timeSeriesResponse.timeSeries = result.timeSeriesResponse.timeSeries[0]
 				  }
-				  console.log(result.timeSeriesResponse.timeSeries.variable)
+				  //~ console.log(result.timeSeriesResponse.timeSeries.variable)
 				  timeSeriesInfo = {
 						siteName: result.timeSeriesResponse.timeSeries.sourceInfo.siteName,
-						siteCode: result.timeSeriesResponse.timeSeries.sourceInfo.siteCode[0].attributes.network + ":" + result.timeSeriesResponse.timeSeries.sourceInfo.siteCode[0].$value,
-						longitude: result.timeSeriesResponse.timeSeries.sourceInfo.geoLocation.geogLocation.longitude,
-						latitude: result.timeSeriesResponse.timeSeries.sourceInfo.geoLocation.geogLocation.latitude,
-						variableCode: (Array.isArray(result.timeSeriesResponse.timeSeries.variable.variableCode)) ? result.timeSeriesResponse.timeSeries.variable.variableCode[0].attributes.vocabulary : result.timeSeriesResponse.timeSeries.variable.variableCode.attributes.vocabulary + ":" + result.timeSeriesResponse.timeSeries.variable.variableCode.$value,
+						siteCode: (result.timeSeriesResponse.timeSeries.sourceInfo.siteCode[0].attributes) ? result.timeSeriesResponse.timeSeries.sourceInfo.siteCode[0].attributes.network + ":" + result.timeSeriesResponse.timeSeries.sourceInfo.siteCode[0].$value : result.timeSeriesResponse.timeSeries.sourceInfo.siteCode[0].$value,
+						longitude: (result.timeSeriesResponse.timeSeries.sourceInfo.geoLocation) ? result.timeSeriesResponse.timeSeries.sourceInfo.geoLocation.geogLocation.longitude : null,
+						latitude: (result.timeSeriesResponse.timeSeries.sourceInfo.geoLocation) ? result.timeSeriesResponse.timeSeries.sourceInfo.geoLocation.geogLocation.latitude: null,
+						variableCode: (Array.isArray(result.timeSeriesResponse.timeSeries.variable.variableCode)) ? result.timeSeriesResponse.timeSeries.variable.variableCode[0].$value : result.timeSeriesResponse.timeSeries.variable.variableCode.$value,
 						variableName: result.timeSeriesResponse.timeSeries.variable.variableName,
 						valueType: result.timeSeriesResponse.timeSeries.variable.valueType,
 						generalCategory: result.timeSeriesResponse.timeSeries.variable.generalCategory,
@@ -223,10 +312,20 @@ app.get('/wmlclient/values', (req, res) => {
 						NoDataValue: result.timeSeriesResponse.timeSeries.variable.NoDataValue,
 						timeScale: result.timeSeriesResponse.timeSeries.variable.timeScale}
 
-				  if(result.timeSeriesResponse.timeSeries.hasOwnProperty("values")) { 
+				  if(result.timeSeriesResponse.timeSeries.values) { 
 					 if(Array.isArray(result.timeSeriesResponse.timeSeries.values)) {
 						  console.log("values is array!")
+					  	  if(result.timeSeriesResponse.timeSeries.values.length<=0) {
+						      console.log("No Data Values")
+						      res.render('valuesemptyresponse',  { endpoint: req.query.endpoint, site: req.query.site, variable: req.query.variable, startDate: req.query.startDate, endDate:req.query. endDate, results: renderlist, metadata: timeSeriesInfo })
+						      return
+						  }
 						  result.timeSeriesResponse.timeSeries.values = result.timeSeriesResponse.timeSeries.values[0]
+					 }
+					 if(!result.timeSeriesResponse.timeSeries.values) {
+						  console.log("No Data Values")
+						  res.render('valuesemptyresponse',  { endpoint: req.query.endpoint, site: req.query.site, variable: req.query.variable, startDate: req.query.startDate, endDate:req.query. endDate, results: renderlist, metadata: timeSeriesInfo })
+						  return
 					 }
 					 if(! result.timeSeriesResponse.timeSeries.values.hasOwnProperty("value")) {
 						 console.log("no value property found");
