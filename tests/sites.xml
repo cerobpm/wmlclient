@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <GetSitesByBoxObjectResponse xmlns="http://www.cuahsi.org/his/1.1/ws/">
+            <sitesResponse xmlns="http://www.cuahsi.org/waterML/1.1/">
+                <queryInfo>
+                    <creationTime>2019-05-24T13:00:02Z</creationTime>
+                    <criteria MethodCalled="GetSites"/>
+                    <note>ALL Sites(empty request)</note>
+                </queryInfo>
+                <site>
+                    <siteInfo>
+                        <siteName>MANACAPURU</siteName>
+                        <siteCode network="" siteID="1">d1df0ee8-b82e-3e12-ba07-bc80c394be3d</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-3.3106</latitude>
+                                <longitude>-60.6094</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+            </sitesResponse>
+        </GetSitesByBoxObjectResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <GetSiteInfoObjectResponse xmlns="http://www.cuahsi.org/his/1.1/ws/">
+            <sitesResponse xmlns="http://www.cuahsi.org/waterML/1.1/">
+                <queryInfo>
+                    <creationTime>2019-05-24T13:05:26Z</creationTime>
+                    <criteria MethodCalled="GetSiteInfo">
+                        <parameter name="site" value="d1df0ee8-b82e-3e12-ba07-bc80c394be3d"/>
+                    </criteria>
+                </queryInfo>
+                <site>
+                    <siteInfo>
+                        <siteName>MANACAPURU</siteName>
+                        <siteCode network="" siteID="1">d1df0ee8-b82e-3e12-ba07-bc80c394be3d</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-3.3106</latitude>
+                                <longitude>-60.6094</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                                   <seriesCatalog menuGroupName="" serviceWsdl="">
+                        <series>
+                            <variable>
+                                <variableCode vocabulary="" default="true" variableID=""
+                                    >519bb3b1-5780-3d02-92b7-d673aebb013c</variableCode>
+                                <variableName>Chuva</variableName>
+                                <valueType>N/A</valueType>
+                                <dataType>N/A</dataType>
+                                <generalCategory></generalCategory>
+ <sampleMedium></sampleMedium>
+ <unit>
+ <unitName></unitName>
+ <unitType></unitType>
+ <unitAbbreviation></unitAbbreviation>
+ <unitCode></unitCode>
+ </unit>
+ <noDataValue></noDataValue>
+ <timeScale isRegular="true">
+ <timeSupport></timeSupport>
+ </timeScale>
+ <speciation>Not Applicable</speciation>
+ </variable>
+ <valueCount>9438</valueCount>
+                            <variableTimeInterval xsi:type="TimeIntervalType">
+                                <beginDateTime>2019-04-13T00:00:00Z</beginDateTime>
+                                <endDateTime>2019-05-24T13:05:26Z</endDateTime>
+                                <beginDateTimeUTC>2019-04-13T00:00:00Z</beginDateTimeUTC>
+                                <endDateTimeUTC>2019-05-24T13:05:26Z</endDateTimeUTC>
+                            </variableTimeInterval>
+ <source sourceID="1">
+ <organization>National Water Agency of Brazil</organization>
+ <sourceDescription>author</sourceDescription>
+ <citation>Acquisitions at MANACAPURU-Chuva</citation>
+ </source>
+                        </series>
+            </seriesCatalog>
+            </site>
+            </sitesResponse>
+        </GetSiteInfoObjectResponse>
+    </soap:Body>
+</soap:Envelope>

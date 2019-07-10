@@ -10,31 +10,29 @@ const bodyParser = require('body-parser')
 const Table = require('table-builder')
 const request = require('request')
 const xml = require('xml')
-const { Client } = require('pg')
-const dbclient = new Client({database: 'odm', user: 'wmlclient', password: 'wmlclient'})
+const { Pool } = require('pg')
+const pool = new Pool({database: 'odm', user: 'wmlclient', password: 'wmlclient'})
 //~ const pgp = require('pg-promise')()
 //~ const pgpclient = pgp({database: 'odm', user: 'wmlclient', password: 'wmlclient'})
 const odmpg = require('./odmpg.js')
 var insertSites = odmpg.insertSites
 var insertSiteInfo = odmpg.insertSiteInfo
-var insertValues =odmpg.insertValues
-dbclient.connect((err) => {
-if (err) {
-    console.error('connection error', err.stack)
-  } else {
-    console.log('connected')
-    dbclient.query('SELECT NOW() as now', (err, res) => {
-	  if(err) {
-		  console.log(err.stack)
-	  } else {
-		  console.log(res.rows[0])
-	  }
-	})
-}})
+var insertValues = odmpg.insertValues
+
+//~ (async () => {
+	//~ const client = await pool.connect()
+	//~ try {
+		//~ const res = await client.query('SELECT NOW() as now')
+ 	    //~ console.log(res.rows[0])
+	//~ } catch(e) {
+		//~ console.error('connection error', e.stack)
+	//~ }
+//~ })().catch(e => console.error(e.stack))
+
 let soap_client_options = { 'request' : request.defaults({'proxy': 'http://jbianchi:jbianchi@10.10.10.119:3128', 'timeout': 20000, 'connection': 'keep-alive'})}
 //~ const { body,validationResult } = require('express-validator/check');
 //~ const { sanitizeBody } = require('express-validator/filter');
-var gicat_url = 'http://giaxe.inmet.gov.br/services/cuahsi_1_1.asmx?WSDL';
+var gicat_url = 'http://gs-service-production.geodab.eu/gs-service/services/essi/view/plata/cuahsi_1_1.asmx?WSDL'; // 'http://giaxe.inmet.gov.br/services/cuahsi_1_1.asmx?WSDL';
 const port = 3000
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -62,13 +60,14 @@ app.get('/wmlclient/sites', (req, res) => {
 				  console.log(err)
 				  return 
 			  }
-			  console.log(client.lastRequest)
+			  //~ console.log(client.lastRequest)
 			  if(req.query.accion == "insert") {
 				  var update = (req.query.update) ? req.query.update : false
-				  insertSites(dbclient,result,update)
+				  insertSites(pool,result,update)
 					.then(values => {
-						if(values.rows) {
-							res.json({message:"insertion success",rows_inserted:values.rows.length})
+						console.log(values)
+						if(values.result) {
+							res.json({message:"insertion success",rows_inserted:values.result.length})
 							return
 						} else {
 						  console.log("empty pg response")
@@ -90,8 +89,8 @@ app.get('/wmlclient/sites', (req, res) => {
 						//~ res.json(result)
 					//~ }
 				//~ } else {
-				//~ res.setHeader('Content-disposition', 'attachment; filename=sites.json');
-				res.download(result)
+				res.setHeader('Content-disposition', 'attachment; filename=sites.json');
+				res.send(result)
 				//~ }
 				return
 			  } else if (req.query.accion == "downloadraw") {
@@ -143,8 +142,8 @@ app.get('/wmlclient/siteinfo', (req, res) => {
 			  if(req.query.accion == "insert") {
 				  var update = (req.query.update) ? req.query.update : false
 				  var promises = []
-				  promises.push(insertSites(dbclient,result,update))
-				  promises.push(insertSiteInfo(dbclient,result,update))
+				  promises.push(insertSites(pool,result,update))
+				  promises.push(insertSiteInfo(pool,result,update))
 				  Promise.all(promises)
 					.then(values => {
 						//~ console.log(values)
@@ -265,9 +264,9 @@ app.get('/wmlclient/values', (req, res) => {
 			   if(req.query.accion == "insert") {
 				  var update = (req.query.update) ? req.query.update : false
 				  var promises = []
-				  //~ promises.push(insertSites(dbclient,result,update))
-				  //~ promises.push(insertSiteInfo(dbclient,result,update))
-				  promises.push(insertValues(dbclient,result,update))
+				  //~ promises.push(insertSites(pool,result,update))
+				  //~ promises.push(insertSiteInfo(pool,result,update))
+				  promises.push(insertValues(pool,result,update))
 				  Promise.all(promises)
 					.then(values => {
 						//~ console.log(values)
@@ -363,6 +362,7 @@ app.get('/wmlclient/values', (req, res) => {
 		})
 	} else if (req.query.endpoint && req.query.site && req.query.variable) {
 		console.log("values, got endpoint, site y variable")
+		console.log(req.query)
 		res.render('values', {endpoint: req.query.endpoint, site: req.query.site, variable: req.query.variable})
 	} else if (req.query.endpoint) {
 		console.log("values, got endpoint")

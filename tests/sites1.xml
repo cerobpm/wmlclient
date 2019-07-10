@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <GetSitesByBoxObjectResponse xmlns="http://www.cuahsi.org/his/1.1/ws/">
+            <sitesResponse xmlns="http://www.cuahsi.org/waterML/1.1/">
+                <queryInfo>
+                    <creationTime>2019-05-24T19:02:08Z</creationTime>
+                    <criteria MethodCalled="GetSites"/>
+                    <note>ALL Sites(empty request)</note>
+                </queryInfo>
+                <site>
+                    <siteInfo>
+                        <siteName>Asunci��n</siteName>
+                        <siteCode network="" siteID="1">018676e9-efba-3220-bbd8-62251f85fd68</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.27585</latitude>
+                                <longitude>-57.640483</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>BENTO GONCALVES</siteName>
+                        <siteCode network="" siteID="1">021ac851-67c2-355f-81c0-e0bacd71f020</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.16722221</latitude>
+                                <longitude>-51.53472221</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PASSO MAROMBAS</siteName>
+                        <siteCode network="" siteID="1">021f3f0d-7365-3572-bfca-d8d142cf9b53</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.3339</latitude>
+                                <longitude>-50.7539</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Paso de la Patria</siteName>
+                        <siteCode network="" siteID="1">0237d157-b0f9-39fc-b60d-5ca4eb03e302</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.33333</latitude>
+                                <longitude>-58.58333</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>ITAQUI</siteName>
+                        <siteCode network="" siteID="1">027302f5-f707-3905-87bf-a0c299f58372</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.1186</latitude>
+                                <longitude>-56.5544</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Goya</siteName>
+                        <siteCode network="" siteID="1">03180e1c-d7b2-3867-acd9-c02c7144fcf2</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.14376844</latitude>
+                                <longitude>-59.27303952</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>TRES LAGOAS</siteName>
+                        <siteCode network="" siteID="1">047dfbf2-0db2-3f9a-aa34-7ee0500c416d</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-20.78999999</latitude>
+                                <longitude>-51.71222222</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>ERECHIM</siteName>
+                        <siteCode network="" siteID="1">08396a27-3749-3182-83e2-5df4d9a64412</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.66027777</latitude>
+                                <longitude>-52.30638888</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>El Dorado</siteName>
+                        <siteCode network="" siteID="1">0a2c0d63-19c8-31d9-ab16-96914f3f441b</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.38333</latitude>
+                                <longitude>-54.7</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>RIO DAS ANTAS</siteName>
+                        <siteCode network="" siteID="1">0ad45c16-3d31-3dc2-9230-88629a018716</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.8958</latitude>
+                                <longitude>-51.0756</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Libertad</siteName>
+                        <siteCode network="" siteID="1">0b2961b6-96c0-3e99-9ee7-deff4993059e</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.916679</latitude>
+                                <longitude>-54.621134</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>MIRANDA</siteName>
+                        <siteCode network="" siteID="1">0b78a220-3801-3f9c-bb33-8995b3f931f9</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-20.2408</latitude>
+                                <longitude>-56.3992</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PORTO LUCENA</siteName>
+                        <siteCode network="" siteID="1">0b790649-5d8d-3b65-8706-a7d948714cdd</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.8544</latitude>
+                                <longitude>-55.0225</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Cazadores Correntinos</siteName>
+                        <siteCode network="" siteID="1">0e16ee0a-8211-3295-8dfe-a2013d1bfad8</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.98349</latitude>
+                                <longitude>-58.295964</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>IGUAZ�� - PUERTO ANDRESITO</siteName>
+                        <siteCode network="" siteID="1">0fb9550a-6d3f-38c6-84bc-5cf0649525e1</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.5906</latitude>
+                                <longitude>-53.9844</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>La Cruz</siteName>
+                        <siteCode network="" siteID="1">142d4307-3667-369e-98fb-4fa81bca8d1b</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.18062</latitude>
+                                <longitude>-56.633977</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Andresito</siteName>
+                        <siteCode network="" siteID="1">14c8f368-f5f6-3b06-8ef7-dc481ec204d4</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.5833333333333</latitude>
+                                <longitude>-53.9833333333333</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>LAGUNA CARAPA</siteName>
+                        <siteCode network="" siteID="1">1544171c-7f59-31fa-b8a5-0cd6891108f5</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-22.57527777</latitude>
+                                <longitude>-55.16027777</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>DIONISIO CERQUEIRA</siteName>
+                        <siteCode network="" siteID="1">15571056-b891-389e-9a79-24b4935153e8</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.28638888</latitude>
+                                <longitude>-53.63277777</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>El Dorado</siteName>
+                        <siteCode network="" siteID="1">15a6aa4a-7506-3992-b9a5-e8a7fc32372b</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.3833333333333</latitude>
+                                <longitude>-54.7</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PORTO ESPANHOL</siteName>
+                        <siteCode network="" siteID="1">15b0e42c-c92f-3ec2-a48c-720699acd81f</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-24.3444</latitude>
+                                <longitude>-51.4239</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Miriñay Medio</siteName>
+                        <siteCode network="" siteID="1">16e9e0ed-77cf-3b8f-99a6-99e9f4222e25</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.357037</latitude>
+                                <longitude>-57.705043</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>ICARAIMA</siteName>
+                        <siteCode network="" siteID="1">16f7754f-0ddc-39d4-981b-e0782ce6c2ce</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-23.39027777</latitude>
+                                <longitude>-53.63472221</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>SAO MIGUEL DO OESTE</siteName>
+                        <siteCode network="" siteID="1">1838112f-3f7a-39c5-b798-8171be1182f4</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.77666666</latitude>
+                                <longitude>-53.50444444</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PONTE DO SARGENTO</siteName>
+                        <siteCode network="" siteID="1">1862dfc7-a990-3a21-a71d-24bb0190edf7</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.6822</latitude>
+                                <longitude>-53.2861</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>FRANCISCO BELTRO MTE. ETA</siteName>
+                        <siteCode network="" siteID="1">195d45b0-3175-3cbc-9b67-be87ad7c2b8e</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.0817</latitude>
+                                <longitude>-53.0739</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Iraí</siteName>
+                        <siteCode network="" siteID="1">1f02dab2-0aa1-31de-b2cb-e7874ae28d08</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.1888888888889</latitude>
+                                <longitude>-53.2533333333333</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Los Laureles</siteName>
+                        <siteCode network="" siteID="1">1f033696-6892-315a-80d0-86f4e15f4a2b</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.7571111111111</latitude>
+                                <longitude>-59.2171666666667</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PASSO DO SARMENTO</siteName>
+                        <siteCode network="" siteID="1">1f08b972-b5a1-3f24-92b8-1a6a87f1df84</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.2119</latitude>
+                                <longitude>-55.3197</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PASO DE LOS LIBRES AERO</siteName>
+                        <siteCode network="" siteID="1">203e646e-a712-324a-9040-be200f3ebf2e</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.683</latitude>
+                                <longitude>-57.15</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Santa Ana</siteName>
+                        <siteCode network="" siteID="1">20436a06-63c3-30ca-8d0b-e8d0ea3c4bcc</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.33509</latitude>
+                                <longitude>-55.58841</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Barranqueras</siteName>
+                        <siteCode network="" siteID="1">20a7d4c7-42cb-3b7c-ba45-60a5245b249a</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.4833333333333</latitude>
+                                <longitude>-58.9333333333333</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>ETA - GUARAPUAVA</siteName>
+                        <siteCode network="" siteID="1">2166e23e-5b6a-39a6-80d0-33ed7424bba5</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.3992</latitude>
+                                <longitude>-51.4364</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>MIRANDA</siteName>
+                        <siteCode network="" siteID="1">232c5a75-82fd-3429-bddd-e35b72793de9</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-20.38333333</latitude>
+                                <longitude>-56.41666666</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>ITUZAINGO</siteName>
+                        <siteCode network="" siteID="1">25f065b2-15a5-355f-bf90-ac55a24bdf28</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.583</latitude>
+                                <longitude>-56.667</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Ruta Nacional nº 11</siteName>
+                        <siteCode network="" siteID="1">26ff07e4-83a3-323a-a61a-5808a2027c1a</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.2786111111111</latitude>
+                                <longitude>-59.7855555555556</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>BERMEJO - EL COLORADO</siteName>
+                        <siteCode network="" siteID="1">27978991-4fa4-3e14-b29c-7f2ebf0007a4</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.3343</latitude>
+                                <longitude>-59.3624</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>MIRI��AY - SAN ROQUITO</siteName>
+                        <siteCode network="" siteID="1">27ea6483-42f4-3a2c-9189-8a5ec2a54b9a</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.2968</latitude>
+                                <longitude>-57.5652</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PORTO PARASO DO NORTE</siteName>
+                        <siteCode network="" siteID="1">296a20f1-f526-3e07-9365-a628b2da6fa1</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-23.3231</latitude>
+                                <longitude>-52.6644</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>GOLONDRINA - FORT��N OLMOS</siteName>
+                        <siteCode network="" siteID="1">2a755222-b16b-3916-8ab6-0e9c7fc48e8c</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.0655</latitude>
+                                <longitude>-60.4972</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Empedrado</siteName>
+                        <siteCode network="" siteID="1">2bc21637-1424-37a1-a64d-1761b13e7933</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.954123</latitude>
+                                <longitude>-58.818524</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Pepirí Miní</siteName>
+                        <siteCode network="" siteID="1">2bd64280-d8b7-319b-b289-9fa7876a8440</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.153744</latitude>
+                                <longitude>-53.933149</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Moussy</siteName>
+                        <siteCode network="" siteID="1">2c5b0ba8-09c6-37a2-b088-40074b28b47f</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.9979166666667</latitude>
+                                <longitude>-59.7526111111111</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Garruchos</siteName>
+                        <siteCode network="" siteID="1">2ce76cca-854e-39bd-ba93-c6f18045096f</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.1833333333333</latitude>
+                                <longitude>-55.65</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Itá Ibaté</siteName>
+                        <siteCode network="" siteID="1">2d9d2591-f0b0-3268-8fab-6e7ed0e0604b</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.42336098</latitude>
+                                <longitude>-57.33326783</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Empedrado</siteName>
+                        <siteCode network="" siteID="1">2e2e8249-54e6-34ca-89bc-3744617fdf63</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.9589004516602</latitude>
+                                <longitude>-58.8203010559082</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Isla del Cerrito</siteName>
+                        <siteCode network="" siteID="1">2f55a1cc-4a77-38b0-97aa-cf61df568670</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.3166666666667</latitude>
+                                <longitude>-58.6166666666667</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Santa Ana</siteName>
+                        <siteCode network="" siteID="1">3075cdaf-8172-3a77-a47b-4a23d6ea059a</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.33509</latitude>
+                                <longitude>-55.588412</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>BALSA DO CANTU</siteName>
+                        <siteCode network="" siteID="1">314df54a-36ee-3301-ab59-d92b62b60bf5</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-24.7486</latitude>
+                                <longitude>-52.7028</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Bonpland</siteName>
+                        <siteCode network="" siteID="1">32d81214-b6a3-312d-8397-74683433cc57</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.872652</latitude>
+                                <longitude>-57.332887</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Guaíra</siteName>
+                        <siteCode network="" siteID="1">33112e09-ad96-3a40-9164-a1c4e0bf6c48</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-24.07713</latitude>
+                                <longitude>-54.276878</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Santo Tomé</siteName>
+                        <siteCode network="" siteID="1">35769874-433f-3681-9c87-b40cdb2f7d12</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.55</latitude>
+                                <longitude>-56.0333333333333</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>SAN JAVIER - ROMANG</siteName>
+                        <siteCode network="" siteID="1">36444c3c-65c8-3f1d-86f5-66fad9c1f68e</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.5051</latitude>
+                                <longitude>-59.7397</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>SANTA LUCIA - SANTA LUC��A</siteName>
+                        <siteCode network="" siteID="1">3799bad2-0840-3fcd-baaa-6cc9d61d147e</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.9964</latitude>
+                                <longitude>-59.1021</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>AQUIDAUANA</siteName>
+                        <siteCode network="" siteID="1">386f1110-c88d-366f-abe2-b5eb1a2e1f37</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-20.4781</latitude>
+                                <longitude>-55.8014</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Pepir�� Min��</siteName>
+                        <siteCode network="" siteID="1">39708edd-9249-3b87-84a6-89beb5a49ea0</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.15374</latitude>
+                                <longitude>-53.933149</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>VALPARAISO</siteName>
+                        <siteCode network="" siteID="1">39ae8f08-cb3e-3a56-8af4-2085933b8f78</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-21.31916666</latitude>
+                                <longitude>-50.93027777</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>AQUIDAUANA</siteName>
+                        <siteCode network="" siteID="1">3a1ede45-f5b2-3b51-98af-ca7e9d2de6a1</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-20.47555554</latitude>
+                                <longitude>-55.78388888</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>OBERA AERO</siteName>
+                        <siteCode network="" siteID="1">3a36745c-63d9-3e80-80d6-339607ea1746</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.483</latitude>
+                                <longitude>-55.133</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>LOS AMORES - RUTA PROVINCIAL N�� 32</siteName>
+                        <siteCode network="" siteID="1">3ae35eb0-52af-334e-aa1a-5d893786a858</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.4912</latitude>
+                                <longitude>-59.3879</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Bermejo</siteName>
+                        <siteCode network="" siteID="1">3d06dabb-3912-38cf-a372-df76c73b6c3d</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.92629</latitude>
+                                <longitude>-58.506205</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Puerto Formosa</siteName>
+                        <siteCode network="" siteID="1">3d46fc5e-44ee-3ccb-9cfb-71f0bd5101f5</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.18333</latitude>
+                                <longitude>-58.183333</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>CLEVELANDIA</siteName>
+                        <siteCode network="" siteID="1">3f85fd8e-e4ca-3353-8d07-d17e81bcd7fd</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.41722221</latitude>
+                                <longitude>-52.34888888</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>GUARA</siteName>
+                        <siteCode network="" siteID="1">4128d3f5-2fb9-3fcd-9924-0049c03eaa54</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-24.0694</latitude>
+                                <longitude>-54.2489</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>QUINTA DO SOL</siteName>
+                        <siteCode network="" siteID="1">4164ca81-39f1-385d-868d-2393feb40a13</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-23.8281</latitude>
+                                <longitude>-52.1831</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>IBIRUBA</siteName>
+                        <siteCode network="" siteID="1">42820099-9999-383e-84b4-15b2ea5aedcc</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.65333333</latitude>
+                                <longitude>-53.11194444</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Panambí</siteName>
+                        <siteCode network="" siteID="1">436410de-a6a5-30d9-b8f1-a4e1a8a9b65d</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.730627</latitude>
+                                <longitude>-54.91305</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>SANTIAGO</siteName>
+                        <siteCode network="" siteID="1">43f4f81e-eed8-36cb-8d04-d68547957b2d</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.19138888</latitude>
+                                <longitude>-54.88555555</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>SOLEDADE</siteName>
+                        <siteCode network="" siteID="1">445679b2-a299-304d-b29f-aae82ea15515</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.85361111</latitude>
+                                <longitude>-52.55833333</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PASSO SO BORJA</siteName>
+                        <siteCode network="" siteID="1">45dc52b4-f136-34a3-b8c3-72a83be65eea</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.6244</latitude>
+                                <longitude>-56.0369</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PARAN�� - CORRIENTES</siteName>
+                        <siteCode network="" siteID="1">466bfae6-3529-3364-9011-6cf37af88706</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.475</latitude>
+                                <longitude>-58.8333</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>El Soberbio</siteName>
+                        <siteCode network="" siteID="1">4a74d77b-0cbe-3f2d-ba7f-721f7f71e6ff</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.298582</latitude>
+                                <longitude>-54.193437</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PRESIDENTE PRUDENTE</siteName>
+                        <siteCode network="" siteID="1">4aefd831-98b8-38c8-a534-a6c53716c242</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-22.11999999</latitude>
+                                <longitude>-51.4</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>SANTO AUGUSTO</siteName>
+                        <siteCode network="" siteID="1">4ce3f86e-755c-3312-ad3f-53a01fe09666</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.85416666</latitude>
+                                <longitude>-53.7911111</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>CRUZ ALTA</siteName>
+                        <siteCode network="" siteID="1">4e12e608-f766-330c-aa11-8dc1bd1ec3cd</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.60361111</latitude>
+                                <longitude>-53.6736111</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>BERMEJO - PUERTO VELAZ</siteName>
+                        <siteCode network="" siteID="1">4e526add-653b-3483-a540-6128ab2d8212</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.7544</latitude>
+                                <longitude>-58.6339</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Puerto Iguaz��</siteName>
+                        <siteCode network="" siteID="1">4ec2d69a-47b8-3e4b-9ac4-e811e03b19bc</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.58333</latitude>
+                                <longitude>-54.56666</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Itat��</siteName>
+                        <siteCode network="" siteID="1">51199b98-0de4-39e3-87d1-a1d4139ad12e</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.26677</latitude>
+                                <longitude>-58.24407</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Represa Itaipú</siteName>
+                        <siteCode network="" siteID="1">52217840-eab6-3258-9af6-adb25637f38c</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.4</latitude>
+                                <longitude>-54.583</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Paso Ledesma</siteName>
+                        <siteCode network="" siteID="1">532db753-95a8-3f42-838b-6640c7e3c52f</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.845916667</latitude>
+                                <longitude>-57.675111111</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>BALSA DO SANTANA</siteName>
+                        <siteCode network="" siteID="1">53443051-a5c1-39fd-83e3-3ade2d26a0be</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.9206</latitude>
+                                <longitude>-52.8522</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>RECONQUISTA AERO</siteName>
+                        <siteCode network="" siteID="1">565eac4f-2105-3331-85c9-906f012904eb</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.183</latitude>
+                                <longitude>-59.7</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>TAPENAG�� - FLORENCIA</siteName>
+                        <siteCode network="" siteID="1">57249cb3-b2e6-3a0a-b742-7187d7af45f9</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.029</latitude>
+                                <longitude>-59.225</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>SANTO ANGELO</siteName>
+                        <siteCode network="" siteID="1">5806bda5-3bae-32fc-a39a-1c76786634e2</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.3553</latitude>
+                                <longitude>-54.2683</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Bermejo</siteName>
+                        <siteCode network="" siteID="1">586a3729-582b-3e73-829e-98ebf2dd29bb</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.92629</latitude>
+                                <longitude>-58.506205</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>IGUAZ�� - PUERTO IGUAZ��</siteName>
+                        <siteCode network="" siteID="1">58d75d78-e285-33b1-ba49-2685f13312c3</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.5933</latitude>
+                                <longitude>-54.5799</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Itatí</siteName>
+                        <siteCode network="" siteID="1">58eb190f-79b5-33e1-a0c5-7de1c86c6d56</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.26677773</latitude>
+                                <longitude>-58.24407387</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>BALSA SANTA MARIA</siteName>
+                        <siteCode network="" siteID="1">58ef39b2-cac6-36df-99e2-a9df2ead2f69</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-24.1661</latitude>
+                                <longitude>-53.7358</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PORTO MURTINHO</siteName>
+                        <siteCode network="" siteID="1">5a88efda-b5ea-3b71-a141-9c09ea0d2f98</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-21.7003</latitude>
+                                <longitude>-57.8911</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>La Cruz</siteName>
+                        <siteCode network="" siteID="1">5ae22c00-e4c6-314d-851f-03642e366e1e</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.18062</latitude>
+                                <longitude>-56.633977</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>URUGUAY - GARRUCHOS</siteName>
+                        <siteCode network="" siteID="1">5afb4887-9965-3980-bf68-5293c7d97ed1</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.1772</latitude>
+                                <longitude>-55.6435</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Yapeyú</siteName>
+                        <siteCode network="" siteID="1">5dd09c75-2983-3356-bfa2-891fe4ef7575</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.470031</latitude>
+                                <longitude>-56.810674</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PONTA PORA</siteName>
+                        <siteCode network="" siteID="1">5fa66b49-7aea-3d21-a12a-5446a74459cf</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-22.5525</latitude>
+                                <longitude>-55.71638888</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>LAS LOMITAS</siteName>
+                        <siteCode network="" siteID="1">6150cb63-dfbe-3035-abfd-780db2cb8a0b</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-24.7</latitude>
+                                <longitude>-60.583</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Alvear</siteName>
+                        <siteCode network="" siteID="1">6171dec1-00ce-3846-95f0-8ab0deeac8a2</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-29.112957</latitude>
+                                <longitude>-56.555522</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>EL REY - MOUSSY</siteName>
+                        <siteCode network="" siteID="1">61ff4024-cb7e-3ab9-b994-dfa2ff49674e</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.9979</latitude>
+                                <longitude>-59.7526</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>NOVO HORIZONTE</siteName>
+                        <siteCode network="" siteID="1">635f8043-3656-3b41-b322-c54bdadfe522</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-26.40694444</latitude>
+                                <longitude>-52.85055555</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>FREDERICO WESTPHALEN</siteName>
+                        <siteCode network="" siteID="1">639cb33d-22ed-30c2-864b-8bc8198d45ed</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-27.39555555</latitude>
+                                <longitude>-53.41277777</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>FOZ DO IGUACU</siteName>
+                        <siteCode network="" siteID="1">64d81c56-7cb7-3fcc-9cc1-e104ed4b91b1</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-25.60194444</latitude>
+                                <longitude>-54.48305554</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>Bella Vista</siteName>
+                        <siteCode network="" siteID="1">65ab822d-8ef9-3f04-a1e6-395527cc5dfc</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-28.503999710083</latitude>
+                                <longitude>-59.048900604248</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+            </sitesResponse>
+        </GetSitesByBoxObjectResponse>
+    </soap:Body>
+</soap:Envelope>

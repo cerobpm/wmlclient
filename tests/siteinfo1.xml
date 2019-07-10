@@ -1,0 +1,78 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Body>        
+      <his:GetSiteInfoObjectResponse xmlns:his="http://www.cuahsi.org/his/1.1/ws/" xmlns:wml="http://www.cuahsi.org/waterML/1.1/">
+	        <wml:sitesResponse>
+		          <wml:queryInfo>
+			            <wml:creationTime>2019-05-24T18:45:57Z</wml:creationTime>
+			            <wml:criteria MethodCalled="GetSiteInfo">
+				              <wml:parameter name="site" value="INMET:APIACAS@1554986357"/>
+			            </wml:criteria>
+		          </wml:queryInfo>
+            <his:site xmlns:his="http://www.cuahsi.org/waterML/1.1/">
+	              <his:siteInfo>
+		                <his:siteName>APIACAS</his:siteName> 
+		                <his:siteCode network="INMET">INMET:APIACAS@1554986357</his:siteCode> 
+		                <his:geoLocation>
+			                  <his:geogLocation xsi:type="LatLonPointType">
+				                    <his:latitude>-9.56388888</his:latitude> 
+				                    <his:longitude>-57.3936111</his:longitude> 
+			                  </his:geogLocation>
+		                </his:geoLocation>
+		                <his:elevation_m/> 
+	              </his:siteInfo>
+	              <his:seriesCatalog>
+                  <his:series>
+	                    <his:variable>
+		                      <his:variableCode default="true" variableID="Precipitation" vocabulary="INMET">Precipitation</his:variableCode> 
+		                      <his:variableName>Precipitation</his:variableName> 
+		                      <his:valueType/> 
+		                      <his:dataType>Unknown</his:dataType> 
+		                      <his:generalCategory>Hydrology</his:generalCategory>
+		                      <his:sampleMedium/> 
+		                      <his:unit>
+			                        <his:unitName/> 
+			                        <his:unitType/> 
+			                        <his:unitAbbreviation/> 
+			                        <his:unitCode/> 
+		                      </his:unit>
+		                      <his:noDataValue>-9999</his:noDataValue>
+		                      <his:timeScale isRegular="true">
+			                        <his:unit>
+				                          <his:unitName>hour</his:unitName>
+				                          <his:unitType>Time</his:unitType>
+				                          <his:unitAbbreviation>hr</his:unitAbbreviation>
+				                          <his:unitCode>103</his:unitCode>
+			                        </his:unit>
+			                        <his:timeSupport>0</his:timeSupport>
+		                      </his:timeScale>
+		                      <his:speciation>Not Applicable</his:speciation>
+	                    </his:variable>
+	                    <his:valueCount/> 
+	                    <his:variableTimeInterval xsi:type="TimeIntervalType">
+		                      <his:beginDateTime/> 
+		                      <his:endDateTime/>
+		                      <his:beginDateTimeUTC>2017-01-01T00:00:00Z</his:beginDateTimeUTC> 
+		                      <his:endDateTimeUTC>2018-06-18T23:00:00Z</his:endDateTimeUTC>
+	                    </his:variableTimeInterval>
+	                    <his:method methodID="0">
+		                      <his:methodCode>0</his:methodCode>
+		                      <his:methodDescription>No method specified</his:methodDescription>
+		                      <his:methodLink/>
+	                    </his:method>
+	                    <his:source sourceID=""> 
+		                      <his:organization>INMET</his:organization> 
+		                      <his:sourceDescription>INMET</his:sourceDescription> 
+		                      <his:citation/> 
+	                    </his:source>
+	                    <his:qualityControlLevel qualityControlLevelID="-9999">
+		                      <his:qualityControlLevelCode>-9999</his:qualityControlLevelCode>
+		                      <his:definition>Unknown</his:definition>
+	                    </his:qualityControlLevel>
+                  </his:series>
+		
+	              </his:seriesCatalog>
+            </his:site>
+	        </wml:sitesResponse>
+      </his:GetSiteInfoObjectResponse>
+   </soap:Body>
+</soap:Envelope>

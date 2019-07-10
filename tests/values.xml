@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soap:Body>
+     <TimeSeriesResponse xmlns="http://www.cuahsi.org/waterML/1.1/">
+         <timeSeriesResponse xmlns:wml1="http://www.cuahsi.org/waterML/1.1/">
+            <queryInfo>
+               <creationTime>2019-05-24T13:21:29.037Z</creationTime>
+               <criteria MethodCalled="GetValuesObject">
+                  <locationParam>d1df0ee8-b82e-3e12-ba07-bc80c394be3d</locationParam>
+                  <variableParam>519bb3b1-5780-3d02-92b7-d673aebb013c</variableParam>
+                  <timeParam>
+                     <beginDateTime>2019-05-23T00:00:00Z</beginDateTime>
+                     <endDateTime>2019-05-24T13:05:26Z</endDateTime>
+                  </timeParam>
+               </criteria>
+            </queryInfo>
+            <timeSeries>
+               <sourceInfo xsi:type="wml1:SiteInfoType">
+                  <siteName>MANACAPURU</siteName>
+                  <siteCode>d1df0ee8-b82e-3e12-ba07-bc80c394be3d</siteCode>
+                  <timeZoneInfo>
+                     <defaultTimeZone zoneOffset="00:00"/>
+                  </timeZoneInfo>
+                  <geoLocation>
+                     <geogLocation srs="EPSG:4326" xsi:type="wml1:LatLonPointType">
+                        <latitude>-3.3106</latitude>
+                        <longitude>-60.6094</longitude>
+                     </geogLocation>
+                  </geoLocation>
+                  <elevation_m>0.0</elevation_m>
+               </sourceInfo>
+               <variable>
+                  <variableCode>519bb3b1-5780-3d02-92b7-d673aebb013c</variableCode>
+                  <variableName>Chuva</variableName>
+                  <unit unitID="54">
+                     <unitName>millimeter</unitName>
+                     <unitDescription>Chuva</unitDescription>
+                     <unitType>Length</unitType>
+                     <unitAbbreviation>mm</unitAbbreviation>
+                     <unitCode>mm</unitCode>
+                  </unit>
+               </variable>
+               <values>
+                  <value dateTime="2019-05-23T00:00:00.000Z"
+                         dateTimeUTC="2019-05-23T00:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T00:15:00.000Z"
+                         dateTimeUTC="2019-05-23T00:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T00:30:00.000Z"
+                         dateTimeUTC="2019-05-23T00:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T00:45:00.000Z"
+                         dateTimeUTC="2019-05-23T00:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T01:00:00.000Z"
+                         dateTimeUTC="2019-05-23T01:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T01:15:00.000Z"
+                         dateTimeUTC="2019-05-23T01:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T01:30:00.000Z"
+                         dateTimeUTC="2019-05-23T01:30:00.000Z">0.40</value>
+                  <value dateTime="2019-05-23T01:45:00.000Z"
+                         dateTimeUTC="2019-05-23T01:45:00.000Z">1.80</value>
+                  <value dateTime="2019-05-23T02:00:00.000Z"
+                         dateTimeUTC="2019-05-23T02:00:00.000Z">0.20</value>
+                  <value dateTime="2019-05-23T02:15:00.000Z"
+                         dateTimeUTC="2019-05-23T02:15:00.000Z">0.40</value>
+                  <value dateTime="2019-05-23T02:30:00.000Z"
+                         dateTimeUTC="2019-05-23T02:30:00.000Z">0.20</value>
+                  <value dateTime="2019-05-23T02:45:00.000Z"
+                         dateTimeUTC="2019-05-23T02:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T03:00:00.000Z"
+                         dateTimeUTC="2019-05-23T03:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T03:15:00.000Z"
+                         dateTimeUTC="2019-05-23T03:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T03:30:00.000Z"
+                         dateTimeUTC="2019-05-23T03:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T03:45:00.000Z"
+                         dateTimeUTC="2019-05-23T03:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T04:00:00.000Z"
+                         dateTimeUTC="2019-05-23T04:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T04:15:00.000Z"
+                         dateTimeUTC="2019-05-23T04:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T04:30:00.000Z"
+                         dateTimeUTC="2019-05-23T04:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T04:45:00.000Z"
+                         dateTimeUTC="2019-05-23T04:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T05:00:00.000Z"
+                         dateTimeUTC="2019-05-23T05:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T05:15:00.000Z"
+                         dateTimeUTC="2019-05-23T05:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T05:30:00.000Z"
+                         dateTimeUTC="2019-05-23T05:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T05:45:00.000Z"
+                         dateTimeUTC="2019-05-23T05:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T06:00:00.000Z"
+                         dateTimeUTC="2019-05-23T06:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T06:15:00.000Z"
+                         dateTimeUTC="2019-05-23T06:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T06:30:00.000Z"
+                         dateTimeUTC="2019-05-23T06:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T06:45:00.000Z"
+                         dateTimeUTC="2019-05-23T06:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T07:00:00.000Z"
+                         dateTimeUTC="2019-05-23T07:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T07:15:00.000Z"
+                         dateTimeUTC="2019-05-23T07:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T07:30:00.000Z"
+                         dateTimeUTC="2019-05-23T07:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T07:45:00.000Z"
+                         dateTimeUTC="2019-05-23T07:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T08:00:00.000Z"
+                         dateTimeUTC="2019-05-23T08:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T08:15:00.000Z"
+                         dateTimeUTC="2019-05-23T08:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T08:30:00.000Z"
+                         dateTimeUTC="2019-05-23T08:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T08:45:00.000Z"
+                         dateTimeUTC="2019-05-23T08:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T09:00:00.000Z"
+                         dateTimeUTC="2019-05-23T09:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T09:15:00.000Z"
+                         dateTimeUTC="2019-05-23T09:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T09:30:00.000Z"
+                         dateTimeUTC="2019-05-23T09:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T09:45:00.000Z"
+                         dateTimeUTC="2019-05-23T09:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T10:00:00.000Z"
+                         dateTimeUTC="2019-05-23T10:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T10:15:00.000Z"
+                         dateTimeUTC="2019-05-23T10:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T10:30:00.000Z"
+                         dateTimeUTC="2019-05-23T10:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T10:45:00.000Z"
+                         dateTimeUTC="2019-05-23T10:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T11:00:00.000Z"
+                         dateTimeUTC="2019-05-23T11:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T11:15:00.000Z"
+                         dateTimeUTC="2019-05-23T11:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T11:30:00.000Z"
+                         dateTimeUTC="2019-05-23T11:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T11:45:00.000Z"
+                         dateTimeUTC="2019-05-23T11:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T12:00:00.000Z"
+                         dateTimeUTC="2019-05-23T12:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T12:15:00.000Z"
+                         dateTimeUTC="2019-05-23T12:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T12:30:00.000Z"
+                         dateTimeUTC="2019-05-23T12:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T12:45:00.000Z"
+                         dateTimeUTC="2019-05-23T12:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T13:00:00.000Z"
+                         dateTimeUTC="2019-05-23T13:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T13:15:00.000Z"
+                         dateTimeUTC="2019-05-23T13:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T13:30:00.000Z"
+                         dateTimeUTC="2019-05-23T13:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T13:45:00.000Z"
+                         dateTimeUTC="2019-05-23T13:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T14:00:00.000Z"
+                         dateTimeUTC="2019-05-23T14:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T14:15:00.000Z"
+                         dateTimeUTC="2019-05-23T14:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T14:30:00.000Z"
+                         dateTimeUTC="2019-05-23T14:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T14:45:00.000Z"
+                         dateTimeUTC="2019-05-23T14:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T15:00:00.000Z"
+                         dateTimeUTC="2019-05-23T15:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T15:15:00.000Z"
+                         dateTimeUTC="2019-05-23T15:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T15:30:00.000Z"
+                         dateTimeUTC="2019-05-23T15:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T15:45:00.000Z"
+                         dateTimeUTC="2019-05-23T15:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T16:00:00.000Z"
+                         dateTimeUTC="2019-05-23T16:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T16:15:00.000Z"
+                         dateTimeUTC="2019-05-23T16:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T16:30:00.000Z"
+                         dateTimeUTC="2019-05-23T16:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T16:45:00.000Z"
+                         dateTimeUTC="2019-05-23T16:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T17:00:00.000Z"
+                         dateTimeUTC="2019-05-23T17:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T17:15:00.000Z"
+                         dateTimeUTC="2019-05-23T17:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T17:30:00.000Z"
+                         dateTimeUTC="2019-05-23T17:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T17:45:00.000Z"
+                         dateTimeUTC="2019-05-23T17:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T18:00:00.000Z"
+                         dateTimeUTC="2019-05-23T18:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T18:15:00.000Z"
+                         dateTimeUTC="2019-05-23T18:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T18:30:00.000Z"
+                         dateTimeUTC="2019-05-23T18:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T18:45:00.000Z"
+                         dateTimeUTC="2019-05-23T18:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T19:00:00.000Z"
+                         dateTimeUTC="2019-05-23T19:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T19:15:00.000Z"
+                         dateTimeUTC="2019-05-23T19:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T19:30:00.000Z"
+                         dateTimeUTC="2019-05-23T19:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T19:45:00.000Z"
+                         dateTimeUTC="2019-05-23T19:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T20:00:00.000Z"
+                         dateTimeUTC="2019-05-23T20:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T20:15:00.000Z"
+                         dateTimeUTC="2019-05-23T20:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T20:30:00.000Z"
+                         dateTimeUTC="2019-05-23T20:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T20:45:00.000Z"
+                         dateTimeUTC="2019-05-23T20:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T21:00:00.000Z"
+                         dateTimeUTC="2019-05-23T21:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T21:15:00.000Z"
+                         dateTimeUTC="2019-05-23T21:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T21:30:00.000Z"
+                         dateTimeUTC="2019-05-23T21:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T21:45:00.000Z"
+                         dateTimeUTC="2019-05-23T21:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T22:00:00.000Z"
+                         dateTimeUTC="2019-05-23T22:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T22:15:00.000Z"
+                         dateTimeUTC="2019-05-23T22:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T22:30:00.000Z"
+                         dateTimeUTC="2019-05-23T22:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T22:45:00.000Z"
+                         dateTimeUTC="2019-05-23T22:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T23:00:00.000Z"
+                         dateTimeUTC="2019-05-23T23:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T23:15:00.000Z"
+                         dateTimeUTC="2019-05-23T23:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T23:30:00.000Z"
+                         dateTimeUTC="2019-05-23T23:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-23T23:45:00.000Z"
+                         dateTimeUTC="2019-05-23T23:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T00:00:00.000Z"
+                         dateTimeUTC="2019-05-24T00:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T00:15:00.000Z"
+                         dateTimeUTC="2019-05-24T00:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T00:30:00.000Z"
+                         dateTimeUTC="2019-05-24T00:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T00:45:00.000Z"
+                         dateTimeUTC="2019-05-24T00:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T01:00:00.000Z"
+                         dateTimeUTC="2019-05-24T01:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T01:15:00.000Z"
+                         dateTimeUTC="2019-05-24T01:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T01:30:00.000Z"
+                         dateTimeUTC="2019-05-24T01:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T01:45:00.000Z"
+                         dateTimeUTC="2019-05-24T01:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T02:00:00.000Z"
+                         dateTimeUTC="2019-05-24T02:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T02:15:00.000Z"
+                         dateTimeUTC="2019-05-24T02:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T02:30:00.000Z"
+                         dateTimeUTC="2019-05-24T02:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T02:45:00.000Z"
+                         dateTimeUTC="2019-05-24T02:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T03:00:00.000Z"
+                         dateTimeUTC="2019-05-24T03:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T03:15:00.000Z"
+                         dateTimeUTC="2019-05-24T03:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T03:30:00.000Z"
+                         dateTimeUTC="2019-05-24T03:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T03:45:00.000Z"
+                         dateTimeUTC="2019-05-24T03:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T04:00:00.000Z"
+                         dateTimeUTC="2019-05-24T04:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T04:15:00.000Z"
+                         dateTimeUTC="2019-05-24T04:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T04:30:00.000Z"
+                         dateTimeUTC="2019-05-24T04:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T04:45:00.000Z"
+                         dateTimeUTC="2019-05-24T04:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T05:00:00.000Z"
+                         dateTimeUTC="2019-05-24T05:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T05:15:00.000Z"
+                         dateTimeUTC="2019-05-24T05:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T05:30:00.000Z"
+                         dateTimeUTC="2019-05-24T05:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T05:45:00.000Z"
+                         dateTimeUTC="2019-05-24T05:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T06:00:00.000Z"
+                         dateTimeUTC="2019-05-24T06:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T06:15:00.000Z"
+                         dateTimeUTC="2019-05-24T06:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T06:30:00.000Z"
+                         dateTimeUTC="2019-05-24T06:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T06:45:00.000Z"
+                         dateTimeUTC="2019-05-24T06:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T07:00:00.000Z"
+                         dateTimeUTC="2019-05-24T07:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T07:15:00.000Z"
+                         dateTimeUTC="2019-05-24T07:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T07:30:00.000Z"
+                         dateTimeUTC="2019-05-24T07:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T07:45:00.000Z"
+                         dateTimeUTC="2019-05-24T07:45:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T08:00:00.000Z"
+                         dateTimeUTC="2019-05-24T08:00:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T08:15:00.000Z"
+                         dateTimeUTC="2019-05-24T08:15:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T08:30:00.000Z"
+                         dateTimeUTC="2019-05-24T08:30:00.000Z">0.00</value>
+                  <value dateTime="2019-05-24T08:45:00.000Z"
+                         dateTimeUTC="2019-05-24T08:45:00.000Z">14.80</value>
+                  <value dateTime="2019-05-24T09:00:00.000Z"
+                         dateTimeUTC="2019-05-24T09:00:00.000Z">11.80</value>
+                  <value dateTime="2019-05-24T09:15:00.000Z"
+                         dateTimeUTC="2019-05-24T09:15:00.000Z">1.20</value>
+               </values>
+            </timeSeries>
+         </timeSeriesResponse>
+      </TimeSeriesResponse>
+   </soap:Body>
+</soap:Envelope>
