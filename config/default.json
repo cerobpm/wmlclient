@@ -1,0 +1,18 @@
+{
+	"defaultwmlserver":{	
+		"url":"http://gs-service-production.geodab.eu/gs-service/services/essi/view/plata/cuahsi_1_1.asmx?WSDL"
+	},
+	"requestdefaults":{
+		"proxy": "http://jbianchi:jbianchi@10.10.10.119:3128", 
+		"timeout": 20000, 
+		"connection": "keep-alive"
+	},
+	"options":{
+		"port":3000
+	},
+	"dbsettings":{
+		"database": "odm", 
+		"user": "wmlclient", 
+		"password": "wmlclient"
+	}
+}	

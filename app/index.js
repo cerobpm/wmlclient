@@ -11,9 +11,11 @@ const Table = require('table-builder')
 const request = require('request')
 const xml = require('xml')
 const { Pool } = require('pg')
-const pool = new Pool({database: 'odm', user: 'wmlclient', password: 'wmlclient'})
 //~ const pgp = require('pg-promise')()
 //~ const pgpclient = pgp({database: 'odm', user: 'wmlclient', password: 'wmlclient'})
+const config = require('config')
+const pool = new Pool(config.get('dbsettings'))
+//~ const appconfig = config.get('/config/default.json')
 const odmpg = require('./odmpg.js')
 var insertSites = odmpg.insertSites
 var insertSiteInfo = odmpg.insertSiteInfo
@@ -29,11 +31,11 @@ var insertValues = odmpg.insertValues
 	//~ }
 //~ })().catch(e => console.error(e.stack))
 
-let soap_client_options = { 'request' : request.defaults({'proxy': 'http://jbianchi:jbianchi@10.10.10.119:3128', 'timeout': 20000, 'connection': 'keep-alive'})}
+let soap_client_options = { 'request' : request.defaults(config.get('requestdefaults'))}
 //~ const { body,validationResult } = require('express-validator/check');
 //~ const { sanitizeBody } = require('express-validator/filter');
-var gicat_url = 'http://gs-service-production.geodab.eu/gs-service/services/essi/view/plata/cuahsi_1_1.asmx?WSDL'; // 'http://giaxe.inmet.gov.br/services/cuahsi_1_1.asmx?WSDL';
-const port = 3000
+var gicat_url = config.get('defaultwmlserver.url') // 'http://giaxe.inmet.gov.br/services/cuahsi_1_1.asmx?WSDL';
+const port = (config.has('options.port')) ? config.get('options.port') : 3000
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));  
