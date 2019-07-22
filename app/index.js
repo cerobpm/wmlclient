@@ -5,6 +5,7 @@ const soap = require('soap')
 const express = require('express')
 const app = express()
 const fs = require('fs')
+//~ const fspromises = require('fs').promises
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Table = require('table-builder')
@@ -17,9 +18,12 @@ const config = require('config')
 const pool = new Pool(config.get('dbsettings'))
 //~ const appconfig = config.get('/config/default.json')
 const odmpg = require('./odmpg.js')
+var xml2js       = require('xml2js');
+var parser       = new xml2js.Parser();
 var insertSites = odmpg.insertSites
 var insertSiteInfo = odmpg.insertSiteInfo
 var insertValues = odmpg.insertValues
+
 
 //~ (async () => {
 	//~ const client = await pool.connect()
@@ -36,17 +40,98 @@ let soap_client_options = { 'request' : request.defaults(config.get('requestdefa
 //~ const { sanitizeBody } = require('express-validator/filter');
 var gicat_url = config.get('defaultwmlserver.url') // 'http://giaxe.inmet.gov.br/services/cuahsi_1_1.asmx?WSDL';
 const port = (config.has('options.port')) ? config.get('options.port') : 3000
+const wmldir = (config.has('options.wmldir')) ? config.get('options.wmldir') : "public/wml"
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));  
 app.use(express.static('public'));
 
-app.get('/wmlclient', (req, res) => {
+app.get('/wmlclient', getwmlclient)
+app.get('/wmlclient/sites',getwmlclientsites)
+app.get('/wmlclient/siteinfo',getwmlclientsiteinfo)
+app.get('/wmlclient/values',getwmlclientvalues)
+app.get('/wmlclient/action',getwmlclientaction)
+app.listen(port, (err) => {
+	if (err) {
+		return console.log('rrr',err)
+	}
+	console.log(`server listening on port ${port}`)
+});
+
+function getwmlclient(req, res) {
 	res.render('wmlclient', { url: gicat_url})
 	console.log('wmlclient form displayed')
 	return
-})
-app.get('/wmlclient/sites', (req, res) => {
+}
+function getwmlclientaction(req, res) {
+	if(!req.query.request || !req.query.accion || !req.query.filename) {
+		console.log("getwmlclientaction error. Parameters missing")
+		res.status(400).send("getwmlclientaction error. Parameters missing")
+		return
+	}
+	var ContentRaw
+	return new Promise( (resolve, reject) => {
+		fs.readFile(req.query.filename, 'utf8', (err, contents) => {
+			if(err) {
+				reject(err)
+			} else {
+				//~ console.log(contents)
+				resolve(contents)
+			}
+		})
+	}).then(contents => {
+		ContentRaw=contents
+		return new Promise( (resolve, reject) => {
+			parser.parseString(contents, (err,parsedcontents) => {
+				if(err) {
+					//~ console.error(err)
+					//~ res.status(400).render("File parser error")
+					reject(err)
+				}
+				//~ console.log(parsedcontents)
+				resolve(parsedcontents)
+			})
+		})
+	}).then( result => {
+		switch(req.query.accion) {
+			case "insert":
+				var update = (req.query.update) ? req.query.update : false
+				switch(req.query.request) {
+					case "sites":
+						return insertSites(pool,result,update)
+					case "siteinfo":
+						return insertSiteInfo(pool,result,update)
+					case "values":
+						return insertValues(pool,result,update)
+					default:
+						throw new Error("Invalid accion")
+				}
+			case "download":
+				var jsonfilename = req.query.filename.replace(/^\/?(.+\/)+(.+)\.wml$/,"$2.json")
+				res.setHeader('Content-disposition', 'attachment; filename='+jsonfilename);
+				//~ res.send(result)
+				return result
+			case "downloadraw": 
+				var xmlfilename = req.query.filename.replace(/^.*\//,"")
+			    res.setHeader('Content-disposition', 'attachment; filename=' + xmlfilename)
+				console.log("download raw")
+				//~ res.send(contents)
+				return ContentRaw
+			default:
+				console.error("invalid accion")
+				//~ res.status(400).send("invalid accion")
+				throw new Error("invalid accion") 
+		}
+	}).then(result => {
+		console.log(result)
+		res.send(result)
+	}).catch(e =>{
+		console.error(e)
+		res.status(400).send(e)
+	})
+}
+
+function getwmlclientsites(req, res) {
 	//~ console.log(req.query)
 	if(req.query.endpoint && req.query.north && req.query.south && req.query.east && req.query.west) {
 		console.log(req.query)
@@ -62,58 +147,73 @@ app.get('/wmlclient/sites', (req, res) => {
 				  console.log(err)
 				  return 
 			  }
-			  //~ console.log(client.lastRequest)
-			  if(req.query.accion == "insert") {
-				  var update = (req.query.update) ? req.query.update : false
-				  insertSites(pool,result,update)
-					.then(values => {
-						console.log(values)
-						if(values.result) {
-							res.json({message:"insertion success",rows_inserted:values.result.length})
-							return
+			  var now = Date.now()
+			  	return new Promise( (resolve, reject) => {
+					fs.writeFile(wmldir + '/getsitesbyboxobjectresult.' + now + ".wml", rawResponse, (err,r) => {
+						if(err) {
+							reject(err)
 						} else {
-						  console.log("empty pg response")
-						  res.status("500").send({error:"nothing inserted"})
+							resolve(r)
 						}
 					})
-					.catch(e => {
-						console.log("error in insertion")
-						res.status("500").send({message:"error in insertion",error:e})
-					})
-				return
-			  } else if(req.query.accion == "download") {
-			  //~ DATA DOWNLOAD   
-				//~ if(req.query.format) {
-					//~ if(req.query.format.toLowerCase() == 'xml') {
-						//~ res.set('Content-Type', 'text/xml')
-						//~ res.send(xml(result))
+				}).then( () => {
+				  console.log(wmldir + '/getsitesbyboxobjectresult.' + now + ".wml written")
+				  if(req.query.accion == "insert") {
+					  var update = (req.query.update) ? req.query.update : false
+					  insertSites(pool,result,update)
+						.then(values => {
+							console.log(values)
+							if(values.result) {
+								res.json({message:"insertion success",rows_inserted:values.result.length})
+								return
+							} else {
+							  console.log("empty pg response")
+							  res.status("500").send({error:"nothing inserted"})
+							}
+						})
+						.catch(e => {
+							console.log("error in insertion")
+							res.status("500").send({message:"error in insertion",error:e})
+						})
+					return
+				  } else if(req.query.accion == "download") {
+				  //~ DATA DOWNLOAD   
+					//~ if(req.query.format) {
+						//~ if(req.query.format.toLowerCase() == 'xml') {
+							//~ res.set('Content-Type', 'text/xml')
+							//~ res.send(xml(result))
+						//~ } else {
+							//~ res.json(result)
+						//~ }
 					//~ } else {
-						//~ res.json(result)
+					res.setHeader('Content-disposition', 'attachment; filename=sites.json');
+					res.send(result)
 					//~ }
-				//~ } else {
-				res.setHeader('Content-disposition', 'attachment; filename=sites.json');
-				res.send(result)
-				//~ }
-				return
-			  } else if (req.query.accion == "downloadraw") {
-				//~ res.setHeader('Content-disposition', 'attachment; filename=sites.xml');
-				console.log("download raw")
-				res.send(rawResponse)
-				return 
-			  } 
-			  var renderlist = []
-			  //~ var ulist = "<
-			  if(result.sitesResponse.hasOwnProperty("site")) {
-				  result.sitesResponse.site.forEach(function(site) {
-					  renderlist.push({siteName: site.siteInfo.siteName,network: site.siteInfo.siteCode[0].attributes.network, siteCode: site.siteInfo.siteCode[0]["$value"], longitude: site.siteInfo.geoLocation.geogLocation.longitude, latitude: site.siteInfo.geoLocation.geogLocation.latitude})
-					  
-				  })
-				  console.log(renderlist)  
-				  res.render('sitesresponse', { north: req.query.north, south: req.query.south, east: req.query.east, west: req.query.west, endpoint: req.query.endpoint, results: renderlist}) 
-				  console.log('success')
-			  } else {
-				  res.render('sitesemptyresponse', { north: req.query.north, south: req.query.south, east: req.query.east, west: req.query.west, endpoint: req.query.endpoint})
-			  }
+					return
+				  } else if (req.query.accion == "downloadraw") {
+					//~ res.setHeader('Content-disposition', 'attachment; filename=sites.xml');
+					console.log("download raw")
+					res.send(rawResponse)
+					return 
+				  } 
+				  var renderlist = []
+				  //~ var ulist = "<
+				  if(result.sitesResponse.hasOwnProperty("site")) {
+					  result.sitesResponse.site.forEach(function(site) {
+						  renderlist.push({siteName: site.siteInfo.siteName,network: site.siteInfo.siteCode[0].attributes.network, siteCode: site.siteInfo.siteCode[0]["$value"], longitude: site.siteInfo.geoLocation.geogLocation.longitude, latitude: site.siteInfo.geoLocation.geogLocation.latitude})
+						  
+					  })
+					  console.log(renderlist)  
+					  res.render('sitesresponse', { north: req.query.north, south: req.query.south, east: req.query.east, west: req.query.west, endpoint: req.query.endpoint, results: renderlist}) 
+					  console.log('success')
+				  } else {
+					  res.render('sitesemptyresponse', { north: req.query.north, south: req.query.south, east: req.query.east, west: req.query.west, endpoint: req.query.endpoint})
+				  }
+			  }).catch(e => {
+				  console.error(e)
+				  res.status(500).send("Server error")
+				  return
+			  })
 		  })
 		})
 	} else if (req.query.endpoint) {
@@ -122,10 +222,9 @@ app.get('/wmlclient/sites', (req, res) => {
 		res.render('sites', {endpoint: gicat_url})
 	}
 	console.log('sites form displayed')
+}
 
-})
-
-app.get('/wmlclient/siteinfo', (req, res) => {
+function getwmlclientsiteinfo(req, res) {
 	if(req.query.endpoint && req.query.site) {
 		console.log("siteinfo, got endpoint and site")
 		console.log(req.query)
@@ -228,9 +327,9 @@ app.get('/wmlclient/siteinfo', (req, res) => {
 		console.log("siteinfo: no args")
 		res.render('siteinfo', {endpoint: gicat_url})
 	}
-})
+}
 
-app.get('/wmlclient/values', (req, res) => {
+function getwmlclientvalues(req, res) {
 	if(req.query.endpoint && req.query.site && req.query.variable && req.query.startDate && req.query.endDate) {
 		console.log("values, got endpoint, site, variable, startDate y endDate")
 		console.log(req.query)
@@ -373,48 +472,4 @@ app.get('/wmlclient/values', (req, res) => {
 		console.log("values: no args")
 		res.render('values', {endpoint: gicat_url})
 	}
-})
-		//~ const cldes = client.describe()
-		//~ fs.writeFile('describe.txt',JSON.stringify(cldes,null,4))
-		//~ client.GetValuesForASiteObject(args, function(err,result) {
-		
-		//~ client.GetVariableInfoObject({ variable: "INA:2"}, function(err,result) {
-			//~ fs.writeFile('variableinfo.json',JSON.stringify(result, null, 4))
-		//~ })
-		//~ client.GetSiteInfoObject({site: "ANA:73600600@1613412505"},  function(err, result) {
-			//~ fs.writeFile('siteinfo.txt',JSON.stringify(result, null, 4))
-		//~ })
-		//~ client.GetValuesObject({location: "ANA:73600600@1613412505", variable: "ODM:Chuva", startDate: "2019-01-14T00:00:00", endDate: "2019-01-15T00:00:00"},  function(err, result) {
-			//~ var tvp = []
-			//~ for(var i=0;i <result.timeSeriesResponse.timeSeries.values[0].value.length;i++) {
-				//~ tvp[i] = [result.timeSeriesResponse.timeSeries.values[0].value[i].attributes.dateTime, result.timeSeriesResponse.timeSeries.values[0].value[i].$value]
-			//~ }
-			//~ fs.writeFile('values_tvp.txt',JSON.stringify(tvp))
-	  //~ })
-	  
-	//~ })
-	//~ .request( (xml,eid) => {
-		  //~ console.log('envelope:'+xml)
-//~ })
-//~ })
-//~ app.get('/variables', (req, res) => {
-	//~ soap.createClient(url, function(err, client) {
-	  //~ client.GetVariables([], function(err, result) {
-		  //~ console.log(result.site)
-		  //~ res.xml(result.site)
-	  //~ })
-	//~ })
- //~ soap.createClientAsync(url).then((client) => {
-    //~ return client.GetVariables([]);
-  //~ }).then((result) => {
-    //~ console.log(result);
-  //~ });
-//~ })
-
-app.listen(port, (err) => {
-	if (err) {
-		return console.log('rrr',err)
-	}
-	console.log(`server listening on port ${port}`)
-});
-
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <GetSitesByBoxObjectResponse xmlns="http://www.cuahsi.org/his/1.1/ws/">
+            <sitesResponse xmlns="http://www.cuahsi.org/waterML/1.1/">
+                <queryInfo>
+                    <creationTime>2019-07-22T01:04:45Z</creationTime>
+                    <criteria MethodCalled="GetSites"/>
+                    <note>ALL Sites(empty request)</note>
+                </queryInfo>
+                <site>
+                    <siteInfo>
+                        <siteName>Ladario</siteName>
+                        <siteCode network="" siteID="1">5135ac9c-44c9-3bbe-b17f-e70ba6d8b0b0</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-19.000543</latitude>
+                                <longitude>-57.59556</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>PORTO ESPERANA</siteName>
+                        <siteCode network="" siteID="1">bef9f3d6-6042-3d8f-8386-56996365ca39</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-19.6006</latitude>
+                                <longitude>-57.4372</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>LADRIO (BASE NAVAL)</siteName>
+                        <siteCode network="" siteID="1">f19453ef-50c5-31ac-8e87-ffa7f722eaa8</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-19.0017</latitude>
+                                <longitude>-57.5942</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+                <site>
+                    <siteInfo>
+                        <siteName>SO FRANCISCO</siteName>
+                        <siteCode network="" siteID="1">f827784d-5941-3286-a26f-532a73033032</siteCode>
+                        <geoLocation>
+                            <geogLocation xsi:type="LatLonPointType" srs="EPSG:4326">
+                                <latitude>-18.3939</latitude>
+                                <longitude>-57.3911</longitude>
+                            </geogLocation>
+                        </geoLocation>
+                    </siteInfo>
+                </site>
+            </sitesResponse>
+        </GetSitesByBoxObjectResponse>
+    </soap:Body>
+</soap:Envelope>
