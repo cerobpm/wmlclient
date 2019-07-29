@@ -36,7 +36,10 @@ div {
 
 .results tr:nth-child(even){background-color: #f2f2f2;}
 
-.results tr:hover {background-color: #ddd;}
+.results tr:hover {
+	background-color: #ddd;
+	cursor: pointer;
+	}
 
 .results th {
   padding-top: 12px;

@@ -4,8 +4,235 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
     <meta charset="utf-8">
     <title>WML client</title>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-      </script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+		var stored_data
+		var listfunc = {getsites: printsiteslist, getsiteinfo: printsiteinfolist, getvalues: printvalueslist} // , getvalues: getvalueslist} 
+		$( document ).ready( function() {
+			$("button.action2").attr("disabled",true)
+		})
+		//~ $("form#getsoap").submit(getsoap)
+		function getsoap() {
+			//~ alert("dont submit")
+			var request = "get" + window.location.pathname.replace(/^.+\//,"")
+			//~ if ( event.preventDefault ) event.preventDefault();
+			document.body.style.cursor = "progress";
+			$.get(request + "?" + $("form#getsoap").serialize(), function(data, textStatus, jqXHR) {
+				document.body.style.cursor = "default";
+				if(!data.result) {
+					alert("No data found!")
+					$("button.action2").attr("disabled", true)
+					$("h4#action2title").html("No records found!")
+					return
+				}
+				stored_data = data
+				$("button.action2").attr("disabled", false)
+				$("h4#action2title").html(data.result.list.length + " records found!")
+				$("button#list").click(listfunc[request])
+				$("a#xml").attr("href", makexmllink())
+				$("a#json").attr("href", makejsonlink())
+				$("a#csv").attr("href", makecsvlink())
+				return
+			}).fail(() => {
+				alert("No data found!")
+				document.bodt.style.cursor = "default"
+				return
+			}) 
+			//~ $("form#getsoap").ajaxSubmit({url: "sites", type: "get"})
+			return false
+		}
+		function printsiteslist() {
+			if(!stored_data.result.list) {
+				alert("No data to list!")
+				return
+			}
+			$("div#list").empty()
+						 .append("<table id=results class=results></table>")
+			$("table#results").append("<tr></tr>")
+			$("table#results tr").append("<th>siteName</th>",
+						         "<th>siteCode</th>",
+						         "<th>network</th>",
+						         "<th>longitude</th>",
+						         "<th>latitude</th>")
+			stored_data.result.list.forEach( row => {
+				var r = $("<tr></tr>", {
+						onclick: "getsiteinfo('" + row.siteCode + "')",
+						title: "click to getSiteInfo"})
+				r.append("<td>"+row.siteName+"</td>",
+							"<td>"+row.siteCode+"</td>",
+							"<td>"+row.network+"</td>",
+							"<td>"+row.longitude+"</td>",
+							"<td>"+row.latitude+"</td>")
+				$("table#results").append(r)
+			})
+		}
+		function printsiteinfolist() {
+			if(!stored_data.result.list) {
+				alert("No data to list!")
+				return
+			}
+			$("div#list").empty()
+				.append("<table id=results class=results></table>")
+			$("table#results").append("<tr></tr>")
+			$("table#results tr").append("<th>siteName</th>",
+				"<th>siteCode</th>",
+				"<th>network</th>",
+				"<th>longitude</th>",
+				"<th>latitude</th>",
+				"<th>variableCode</th>",
+				"<th>variableName</th>",
+				"<th>valueType</th>",
+				"<th>dataType</th>",
+				"<th>generalCategory</th>",
+				"<th>sampleMedium</th>",
+				"<th>unitName</th>",
+				"<th>unitType</th>",
+				"<th>unitAbbreviation</th>",
+				"<th>unitCode</th>",
+				"<th>noDataValue</th>",
+				"<th>timeScaleIsRegular</th>",
+				"<th>timeScaleUnitName</th>",
+				"<th>timeScaleUnitType</th>",
+				"<th>timeScaleUnitAbbreviation</th>",
+				"<th>timeScaleUnitCode</th>",
+				"<th>timeScaleTimeSupport</th>",
+				"<th>speciation</th>",
+				"<th>valueCount</th>",
+				"<th>beginDateTime</th>",
+				"<th>endDateTime</th>",
+				"<th>beginDateTimeUTC</th>",
+				"<th>endDateTimeUTC</th>",
+				"<th>methodId</th>",
+				"<th>methodCode</th>",
+				"<th>methodDescription</th>",
+				"<th>methodLink</th>",
+				"<th>sourceID</th>",
+				"<th>organization</th>",
+				"<th>citation</th>",
+				"<th>qualityControlLevelID</th>",
+				"<th>qualityControlLevelCode</th>",
+				"<th>qualityControlLevelDefinition</th>")
+			stored_data.result.list.forEach( row => {
+				var r = $("<tr></tr>", {
+					onclick: "getvalues('" + row.siteCode + "','" + row.variableCode +"')",
+					title: "click to getValues"})
+				r.append("<td>"+row.siteName+"</td>",
+					"<td>"+row.siteCode+"</td>",
+					"<td>"+row.network+"</td>",
+					"<td>"+row.longitude+"</td>",
+					"<td>"+row.latitude+"</td>",
+					"<td>"+row.variableCode+"</td>",
+					"<td>"+row.variableName+"</td>",
+					"<td>"+row.valueType+"</td>",
+					"<td>"+row.dataType+"</td>",
+					"<td>"+row.generalCategory+"</td>",
+					"<td>"+row.sampleMedium+"</td>",
+					"<td>"+row.unitName+"</td>",
+					"<td>"+row.unitType+"</td>",
+					"<td>"+row.unitAbbreviation+"</td>",
+					"<td>"+row.unitCode+"</td>",
+					"<td>"+row.noDataValue+"</td>",
+					"<td>"+row.timeScaleIsRegular+"</td>",
+					"<td>"+row.timeScaleUnitName+"</td>",
+					"<td>"+row.timeScaleUnitType+"</td>",
+					"<td>"+row.timeScaleUnitAbbreviation+"</td>",
+					"<td>"+row.timeScaleUnitCode+"</td>",
+					"<td>"+row.timeScaleTimeSupport+"</td>",
+					"<td>"+row.speciation+"</td>",
+					"<td>"+row.valueCount+"</td>",
+					"<td>"+row.beginDateTime+"</td>",
+					"<td>"+row.endDateTime+"</td>",
+					"<td>"+row.beginDateTimeUTC+"</td>",
+					"<td>"+row.endDateTimeUTC+"</td>",
+					"<td>"+row.methodId+"</td>",
+					"<td>"+row.methodCode+"</td>",
+					"<td>"+row.methodDescription+"</td>",
+					"<td>"+row.methodLink+"</td>",
+					"<td>"+row.sourceID+"</td>",
+					"<td>"+row.organization+"</td>",
+					"<td>"+row.citation+"</td>",
+					"<td>"+row.qualityControlLevelID+"</td>",
+					"<td>"+row.qualityControlLevelCode+"</td>",
+					"<td>"+row.qualityControlLevelDefinition+"</td>")
+				$("table#results").append(r)
+			})
+		}
+		function printvalueslist() {
+			if(!stored_data.result.list) {
+				alert("No data to list!")
+				return
+			}
+			$("div#list").empty()
+				.append("<table id=results class=results><tr></tr>")
+			$("table#results tr").append("<th>censorCode</th>",
+				"<th>dateTime</th>",
+				"<th>qualityControlLevel</th>",
+				"<th>methodID</th>",
+				"<th>sourceID</th>",
+				"<th>sampleID</th>",
+				"<th>value</th>")
+			stored_data.result.list.forEach(row => {
+				var r = $("<tr></tr>")
+				r.append("<td>{{censorCode}}</td>",
+					"<td>"+row.dateTime+"</td>",
+					"<td>"+row.qualityControlLevel+"</td>",
+					"<td>"+row.methodID+"</td>",
+					"<td>"+row.sourceID+"</td>",
+					"<td>"+row.sampleID+"</td>",
+					"<td>"+row.value+"</td>")
+				$("table#results").append(r)
+			})
+			//~ $('table#results').DataTable( {
+			  //~ dom: 'Bfrtip',
+			  //~ buttons: [
+			  //~ 'copy', 'csv', 'excel', 'pdf', 'print'
+			  //~ ],
+			  //~ columnDefs: [
+				//~ { 
+					//~ targets: '_all',
+					//~ className: 'dt-center'
+				//~ }
+			  //~ ]
+			//~ })
+
+		}
+		function getvalues(site,variable) {
+			console.log("going to getvalues")
+			var endpoint = stored_data.query.endpoint //~  document.getElementById("endpoint").value;
+			console.log("getvalues: endpoint: " + endpoint + ", site:" + site + ", variable: " + variable);
+			window.open("/wmlclient/values?endpoint=" + endpoint + "&site=" + site + "&variable=" + variable, "_self");
+			return;
+		}
+		function getsiteinfo(site) {
+			var endpoint = stored_data.query.endpoint // document.getElementById("endpoint").value;
+			window.open("/wmlclient/siteinfo?endpoint=" + endpoint + "&site=" + site, "_self");
+		}
+		function makexmllink() {
+			if(!stored_data.result.xml) {
+				console.log("No data found!")
+				return 
+			}
+			return window.URL.createObjectURL(new Blob([stored_data.result.xml], {type: 'text/plain'})); 
+		}
+		function makejsonlink() {
+			if(!stored_data.result.json) {
+				console.log("No data found!")
+				return
+			}
+			return window.URL.createObjectURL(new Blob([stored_data.result.json], {type: 'text/plain'})); 
+		}
+		function makecsvlink() {
+			if(!stored_data.result.csv) {
+				console.log("No data found!")
+				return
+			}
+			return window.URL.createObjectURL(new Blob([stored_data.result.csv], {type: 'text/plain'})); 
+		}
+</script>
+
+			
+			
 <!--
       <script src = "https://code.highcharts.com/highcharts.js"></script>
       <script src = "https://code.highcharts.com/modules/data.js"></script>

@@ -9,6 +9,9 @@ exports.insertSites =  function(pool,data,update) {
 			console.log("Error: missing sitesResponse property");
 			reject("missing sitesResponse property")
 		}
+		if(Array.isArray(data.sitesResponse)) {
+			data.sitesResponse = data.sitesResponse[0]
+		}
 		if(!data.sitesResponse.site) {
 			console.log("Error: missing sitesResponse.site property");
 			reject("missing sitesResponse.site property")
@@ -23,6 +26,7 @@ exports.insertSites =  function(pool,data,update) {
 				console.log("Warning: siteInfo missing from a sites element, skipping")
 				return
 			}
+			console.log(site.siteInfo)
 			if(! site.siteInfo.siteName) {
 				console.log("Warning: siteInfo.siteName missing from a sites element, skipping")
 				return
