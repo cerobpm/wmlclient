@@ -154,26 +154,8 @@ exports.insertSiteInfo =  function(pool,data,update) {
 						console.log("variableName missing!")
 						break variable
 					}
-					console.log("intentando insert de variable")
-					var values = "'" + series.variable.variableName + "','" + variableCode + "'," + ((series.variable.speciation) ? (series.variable.speciation != "") ? "'" + series.variable.speciation + "'" : "'Not Applicable'" : "'Not Applicable'" ) + "," + ((series.variable.unit) ? (series.variable.unit.unitCode) ? series.variable.unit.unitCode : 0 : 0 ) + "," + ((series.variable.sampleMedium) ? (series.variable.sampleMedium != "") ? "'" + series.variable.sampleMedium + "'" : "'Unknown'" : "'Unknown'" ) + "," + ((series.variable.valueType) ? (series.variable.valueType != "") ? (series.variable.valueType != "N/A") ? "'" + series.variable.valueType + "'" : "'Unknown'"  : "'Unknown'" : "'Unknown'") + "," + ((series.variable.timeScale) ? (series.variable.timeScale.attributes) ? (series.variable.timeScale.attributes.isRegular) ? series.variable.timeScale.attributes.isRegular : "NULL" : "NULL" : "NULL") + "," + ((series.variable.timeScale) ? (series.variable.timeScale.timeSupport) ? series.variable.timeScale.timeSupport : "DEFAULT" : "DEFAULT") + "," + ((series.variable.timeScale.unit) ? (series.variable.timeScale.unit.unitCode) ? series.variable.timeScale.unit.unitCode : "DEFAULT" : "DEFAULT") + "," + ((series.variable.dataType) ? (series.variable.dataType != "") ? (series.variable.dataType != "N/A") ? "'" + series.variable.dataType + "'" : "'Unknown'" : "'Unknown'" : "'Unknown'") + "," + ((series.variable.generalCategory) ? (series.variable.generalCategory != "") ? "'" + series.variable.generalCategory + "'" : "'Unknown'"  : "'Unknown'") + "," + ((series.variable.noDataValue) ? (series.variable.noDataValue != "") ? series.variable.noDataValue : "0" : "0")
-					var onconflict = (update) ? 'UPDATE SET "VariableName"=excluded."VariableName", "VariableCode"=excluded."VariableCode", "Speciation"=excluded."Speciation", "VariableUnitsID"=excluded."VariableUnitsID", "SampleMedium"=excluded."SampleMedium",  "ValueType"=excluded."ValueType", "IsRegular"=excluded."IsRegular", "TimeSupport"=excluded."TimeSupport", "TimeUnitsID"=excluded."TimeUnitsID", "DataType"=excluded."DataType", "GeneralCategory"=excluded."GeneralCategory", "NoDataValue"=excluded."NoDataValue"' : 'NOTHING'
-					var stmt = 'INSERT INTO "Variables" ("VariableName", "VariableCode", "Speciation", "VariableUnitsID", "SampleMedium", "ValueType","IsRegular","TimeSupport","TimeUnitsID","DataType", "GeneralCategory","NoDataValue") values (' + values + ') ON CONFLICT ("VariableCode") DO ' + onconflict + ' RETURNING *'
-					//~ console.log(stmt)
-					promises.push(
-						pool.connect()
-						    .then(client => {
-								return client.query(stmt)
-									.then(res => {
-										client.release()
-										console.log(res.rows)
-										return {property:"variable",result:res.rows}
-									}).catch(e => {
-										client.release()
-										console.log(e.stack)
-										return {property:"variable",result:[]}
-									})
-							})
-					)
+					series.variable.variableCode = variableCode
+					promises.push(insertvariable(pool,series.variable,update))
 							
 					//~ })
 				}
@@ -183,12 +165,15 @@ exports.insertSiteInfo =  function(pool,data,update) {
 						//~ break method
 					//~ }
 					if(!series.method) {
+						console.log("method not found")
 						break method
 					}
 					if(!series.method.attributes) {
+						console.log("method.attributes not found")
 						break method
 					}
 					if(!series.method.attributes.methodID) {
+						console.log("method.attributes.methodID not found")
 						break method
 					}
 					if(parseInt(series.method.attributes.methodID) == "NaN") {
@@ -196,30 +181,10 @@ exports.insertSiteInfo =  function(pool,data,update) {
 						break method
 					}
 					if(!series.method.methodDescription) {
+						console.log("method.methodDescription not found!")
 						break method
 					}
-					console.log("intentando insert de method")
-					// NOTE: property methodCode is ignored, new value created as: "methodID"
-					//       property MethodID is ignored, new value generated as next value in index
-					var values =  "DEFAULT,'" + series.method.methodDescription + "','" + parseInt(series.method.attributes.methodID) + "'," + ((series.method.methodLink) ? "'" + series.method.methodLink + "'" : "NULL" )
-					var onconflict = (update) ? 'UPDATE SET  "MethodDescription"=excluded."MethodDescription", "MethodLink"=excluded."MethodLink"' : 'NOTHING'
-					var stmt = 'INSERT INTO "Methods" ("MethodID", "MethodDescription", "MethodCode", "MethodLink") VALUES (' + values + ') ON CONFLICT ("MethodCode") DO ' + onconflict + ' RETURNING *'
-					//~ console.log(stmt)
-					promises.push(
-						pool.connect()
-							.then(client => {
-								return client.query(stmt)
-									.then(res => {
-										client.release()
-										console.log(res.rows[0])
-										return {property:"method",result:res.rows}
-									}).catch(e => {
-										client.release()
-										console.log(e.stack)
-										return {property:"method",result:[]}
-									})
-							})
-					)
+					promises.push(insertmethod(pool,series.method,update))
 				}
 				var organization
 				source: {
@@ -227,40 +192,23 @@ exports.insertSiteInfo =  function(pool,data,update) {
 						//~ break source
 					//~ }
 					if(!series.source) {
+						console.log("source no encontrado")
 						break source
 					}
 					if(!series.source.organization) {
+						console.log("source.organization no encontrado")
 						break source
 					}
 					organization = series.source.organization
 					if(!series.source.sourceDescription) {
+						console.log("source.sourceDescription no encontrado")
 						break source
 					}
-					console.log("intentando insert de source")
-					// NOTE: property sourceCode is ignored, new value created as: "sourceID"
-					//       property SourceID is ignored, new value generated as next value in index
-					var values = "DEFAULT,'" + series.source.organization + "','" + series.source.sourceDescription + "'," + ((series.source.sourceLink) ? "'" + series.source.sourceLink + "'" : "NULL") +  "," + ((series.source.contactInformation) ? (series.source.contactInformation.contactName) ? "'" + series.source.contactInformation.contactName + "'" : "DEFAULT"  : "DEFAULT") + "," +  ((series.source.contactInformation) ? (series.source.contactInformation.phone) ? "'" + series.source.contactInformation.phone + "'" : "DEFAULT"  : "DEFAULT") + "," + ((series.source.contactInformation) ? (series.source.contactInformation.email) ? "'" + series.source.contactInformation.email + "'" : "DEFAULT"  : "DEFAULT") + "," + ((series.source.contactInformation) ? (series.source.contactInformation.address) ? "'" + series.source.contactInformation.address + "'" : "DEFAULT"  : "DEFAULT") + "," + ((series.source.contactInformation) ? (series.source.contactInformation.address) ? (series.source.contactInformation.address.city) ? "'" + series.source.contactInformation.address.city + "'" : "DEFAULT"  : "DEFAULT" : "DEFAULT") + "," +  ((series.source.contactInformation) ? (series.source.contactInformation.address) ? (series.source.contactInformation.address.state) ? "'" + series.source.contactInformation.address.state + "'" : "DEFAULT"  : "DEFAULT" : "DEFAULT") + "," + ((series.source.contactInformation) ? (series.source.contactInformation.address) ? (series.source.contactInformation.address.zipCode) ? "'" + series.source.contactInformation.address.zipCode + "'" : "DEFAULT"  : "DEFAULT" : "DEFAULT") + "," + ((series.source.citation) ? "'" + series.source.citation + "'" : "NULL") + "," + ((series.source.metadataID) ? (parseInt(series.source.metadataID) != 'NaN') ? parseInt(series.source.metadataID) : "DEFAULT" : "DEFAULT") + "," + "'" + ((series.source.sourceID) ? parseInt(series.source.sourceID) : "0") + "'"
-					var onconflict = (update) ? 'UPDATE SET "Organization"=excluded."Organization", "SourceDescription"=excluded."SourceDescription", "SourceLink"=excluded."SourceLink", "ContactName"=excluded."ContactName", "Phone"=excluded."Phone", "Email"=excluded."Email", "Address"=excluded."Address", "City"=excluded."City", "State"=excluded."State", "ZipCode"=excluded."ZipCode", "Citation"=excluded."Citation", "MetadataID"=excluded."MetadataID"' : 'NOTHING'
-					var stmt = 'INSERT INTO "Sources" ("SourceID","Organization","SourceDescription","SourceLink","ContactName","Phone","Email","Address","City","State","ZipCode","Citation","MetadataID","SourceCode") VALUES (' + values + ') ON CONFLICT ("SourceCode") DO ' + onconflict + ' RETURNING *'
-					//~ console.log(stmt)
-					promises.push(
-						pool.connect()
-						.then(client => {
-							return client.query(stmt)
-								.then(res => {
-									client.release()
-									console.log(res.rows[0])
-									return {property:"method",result:res.rows}
-								}).catch(e => {
-									client.release()
-									console.log(e.stack)
-									return {property:"method",result:[]}
-								})
-						})
-					)
+					promises.push(insertsource(pool,series.source,update))
+
 				}
 				SeriesCatalog: {
-					console.log(site.siteInfo)
+					//~ console.log(site.siteInfo)
 					var siteCode = (site.siteInfo) ? (site.siteInfo.siteCode) ? (Array.isArray(site.siteInfo.siteCode)) ? (typeof site.siteInfo.siteCode[0] === 'string') ? site.siteInfo.siteCode[0] : (site.siteInfo.siteCode[0].$value) ? site.siteInfo.siteCode[0].$value : null : (typeof site.siteInfo.siteCode === 'string') ? site.siteInfo.siteCode : (site.siteInfo.siteCode.$value) ? site.siteInfo.siteCode.$value : null : null : null
 					if(! siteCode) {
 						console.log("no siteCode!")
@@ -273,17 +221,19 @@ exports.insertSiteInfo =  function(pool,data,update) {
 					promises.push(
 						pool.connect()
 						.then(client => {
+							client.on('notice', msg => console.warn('notice:', msg))
 							var args = [  ((series.variableTimeInterval) ? (series.variableTimeInterval.beginDateTime) ? series.variableTimeInterval.beginDateTime : 'NULL' : 'NULL') , ((series.variableTimeInterval) ? (series.variableTimeInterval.endDateTime) ? series.variableTimeInterval.endDateTime : 'NULL' : 'NULL'),  ((series.variableTimeInterval) ? (series.variableTimeInterval.beginDateTimeUTC) ? series.variableTimeInterval.beginDateTimeUTC : 'NULL' : 'NULL') , ((series.variableTimeInterval) ? (series.variableTimeInterval.endDateTimeUTC) ? series.variableTimeInterval.endDateTimeUTC : 'NULL' : 'NULL'), ((series.valueCount) ? series.valueCount : 'NULL'), siteCode, variableCode, ((methodDescription) ? methodDescription : 'Unknown'), ((organization) ? organization : 'NULL'), ((series.qualityControlLevel) ? (series.qualityControlLevelCode) ? (Array.isArray(series.qualityControlLevelCode)) ? (typeof series.qualityControlLevelCode[0] === 'string') ? series.qualityControlLevelCode[0] : (series.qualityControlLevelCode[0].$value) ? series.qualityControlLevelCode[0].$value : 'Unknown' : (typeof series.qualityControlLevelCode === 'string') ? series.qualityControlLevelCode : (series.qualityControlLevelCode.$value) ? series.qualityControlLevelCode.$value : 'Unknown' : 'Unknown' : 'Unknown' )]
 							return client.query("INSERT INTO \"SeriesCatalog\" (\"SiteID\",\"SiteCode\",\"SiteName\",\"SiteType\", \"VariableID\", \"VariableCode\", \"VariableName\", \"Speciation\", \"VariableUnitsID\", \"VariableUnitsName\", \"SampleMedium\", \"ValueType\", \"TimeSupport\", \"TimeUnitsID\", \"TimeUnitsName\", \"DataType\", \"GeneralCategory\", \"MethodID\", \"MethodDescription\", \"SourceID\", \"Organization\", \"SourceDescription\", \"Citation\", \"QualityControlLevelID\", \"QualityControlLevelCode\", \"BeginDateTime\", \"EndDateTime\", \"BeginDateTimeUTC\", \"EndDateTimeUTC\", \"ValueCount\") SELECT \"Sites\".\"SiteID\",\"Sites\".\"SiteCode\", \"Sites\".\"SiteName\",  \"Sites\".\"SiteType\", \"Variables\".\"VariableID\", \"Variables\".\"VariableCode\", \"Variables\".\"VariableName\", \"Variables\".\"Speciation\", \"Variables\".\"VariableUnitsID\", varunits.\"UnitsName\", \"Variables\".\"SampleMedium\", \"Variables\".\"ValueType\", \"Variables\".\"TimeSupport\", \"Variables\".\"TimeUnitsID\", timeunits.\"UnitsName\", \"Variables\".\"DataType\", \"Variables\".\"GeneralCategory\", \"Methods\".\"MethodID\", \"Methods\".\"MethodDescription\", \"Sources\".\"SourceID\", \"Sources\".\"Organization\", \"Sources\".\"SourceDescription\", \"Sources\".\"Citation\", \"QualityControlLevels\".\"QualityControlLevelID\", \"QualityControlLevels\".\"QualityControlLevelCode\",$1, $2, $3, $4, $5 FROM \"Sites\" JOIN \"Variables\" ON (\"SiteCode\"=$6 AND \"VariableCode\"=$7) LEFT JOIN \"Units\" varunits ON (varunits.\"UnitsID\"=\"Variables\".\"VariableUnitsID\") LEFT JOIN \"Units\" timeunits ON (timeunits.\"UnitsID\"=\"Variables\".\"TimeUnitsID\") LEFT JOIN \"Methods\" ON (\"Methods\".\"MethodDescription\" = $8) LEFT JOIN \"Sources\" ON (\"Sources\".\"Organization\" = $9) LEFT JOIN \"QualityControlLevels\" ON (\"QualityControlLevels\".\"QualityControlLevelCode\"=$10) ON CONFLICT (\"SiteID\", \"VariableID\") DO NOTHING RETURNING *",args)
-							.then(res => {
-								client.release()
-								console.log(res.rows[0])
-								return {property:"seriesCatalog",result:res.rows}
-							}).catch(e => {
-								client.release()
-								console.log(e.stack)
-								return {property:"seriesCatalog",result:[]}
-							})
+							//~ .then(res => {
+								//~ client.release()
+								//~ console.log(res.rows[0])
+								//~ return {property:"seriesCatalog",result:res.rows}
+							//~ }).catch(e => {
+								//~ client.release()
+								//~ console.log("insert seriesCatalog error")
+								//~ console.log(e)
+								//~ return {property:"seriesCatalog",result:[]}
+							//~ })
 						})
 					)
 				}
@@ -292,7 +242,7 @@ exports.insertSiteInfo =  function(pool,data,update) {
 		Promise.all(promises)
 			.then(values => {
 				console.log("insert siteinfo success")
-				console.log(values)
+				//~ console.log(values)
 				//~ var variableCodes = values.map(item => {
 					//~ return item.rows.map(row => {
 						//~ return row.VariableCode
@@ -301,13 +251,15 @@ exports.insertSiteInfo =  function(pool,data,update) {
 				//~ resolve({action:"insertSiteInfo",result:flatten(variableCodes)})
 				var codenames = {source:"Organization", method: "MethodDescription", variable: "VariableCode", seriesCatalog: "SeriesID"}
 				var codes = values.map(item => {
-					console.log("reading inserted:" + item.property)
-					var codename = codenames[item.property]
-					return item.result.map(res => {
-						return res[codename]
-					})
+					if(item.property) {
+						console.log("reading inserted:" + item.property)
+						var codename = codenames[item.property]
+						return item.result.map(res => {
+							return res[codename]
+						})
+					}
 				})
-				resolve({action:"insertSiteInfo",result:flatten(codes)})
+				resolve({action:"insertSiteInfo",values:values}) // result:flatten(codes)})
 			})
 			.catch(e => {
 				console.log("insert siteinfo error")
@@ -571,3 +523,90 @@ exports.insertValues =  function(pool,data,update) {
 	})
 }
 
+function insertvariable(pool,variable,update) {
+	console.log("rodando insertvariable")
+	var values = [
+	               variable.variableName,
+				   variable.variableCode,
+				   (variable.speciation) ? (variable.speciation != "") ? variable.speciation : null: null,
+				   (variable.unit) ? (variable.unit.unitCode) ? variable.unit.unitCode : 0 : 0,
+				   (variable.sampleMedium) ? (variable.sampleMedium != "") ? variable.sampleMedium : null : null,
+				   (variable.valueType) ? (variable.valueType != "") ? (variable.valueType != "N/A") ? variable.valueType : null : null : null,
+				   (variable.timeScale) ? (variable.timeScale.attributes) ? (variable.timeScale.attributes.isRegular) ? variable.timeScale.attributes.isRegular : null : null : null,
+				   (variable.timeScale) ? (variable.timeScale.timeSupport) ? variable.timeScale.timeSupport : null : null,
+				   (variable.timeScale.unit) ? (variable.timeScale.unit.unitCode) ? variable.timeScale.unit.unitCode : null : null,
+				   (variable.dataType) ? (variable.dataType != "") ? (variable.dataType != "N/A") ? variable.dataType : null : null : null,
+				   (variable.generalCategory) ? (variable.generalCategory != "") ? variable.generalCategory : null : null,
+				   (variable.noDataValue) ? (variable.noDataValue != "") ? variable.noDataValue : null : null
+			   ]
+	var onconflict = (update) ? 'UPDATE SET "VariableName"=excluded."VariableName", "VariableCode"=excluded."VariableCode", "Speciation"=excluded."Speciation", "VariableUnitsID"=excluded."VariableUnitsID", "SampleMedium"=excluded."SampleMedium",  "ValueType"=excluded."ValueType", "IsRegular"=excluded."IsRegular", "TimeSupport"=excluded."TimeSupport", "TimeUnitsID"=excluded."TimeUnitsID", "DataType"=excluded."DataType", "GeneralCategory"=excluded."GeneralCategory", "NoDataValue"=excluded."NoDataValue"' : 'NOTHING'
+	var stmt = 'INSERT INTO "Variables" ("VariableName", "VariableCode", "Speciation", "VariableUnitsID", "SampleMedium", "ValueType","IsRegular","TimeSupport","TimeUnitsID","DataType", "GeneralCategory","NoDataValue") values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) ON CONFLICT ("VariableCode") DO ' + onconflict + ' RETURNING *'
+	//~ console.log(stmt)
+	return pool.query(stmt,values)
+	.then(res => {
+		//~ client.release()
+		console.log("Variable inserted: " + res.rowCount + " rows")
+		//~ console.log(res)
+		return {property:"variable",result:res.rows}
+	})
+	.catch(err => console.error("insertvariable: Error executing query", err.stack))
+}
+
+function insertsource(pool,source,update) {
+	console.log("rodando insertsource")
+	var values = [
+		source.organization,
+		source.sourceDescription,
+		source.sourceLink,
+		(source.contactInformation) ? (source.contactInformation.contactName) ? source.contactInformation.contactName : null  : null,
+		(source.contactInformation) ? (source.contactInformation.phone) ? source.contactInformation.phone : null : null,
+		(source.contactInformation) ? (source.contactInformation.email) ? source.contactInformation.email : null  : null,
+		(source.contactInformation) ? (source.contactInformation.address) ? source.contactInformation.address : null  : null ,
+		(source.contactInformation) ? (source.contactInformation.address) ? (source.contactInformation.address.city) ?  source.contactInformation.address.city : null  : null : null,
+		(source.contactInformation) ? (source.contactInformation.address) ? (source.contactInformation.address.state) ? source.contactInformation.address.state : null  : null : null,
+		(source.contactInformation) ? (source.contactInformation.address) ? (source.contactInformation.address.zipCode) ? source.contactInformation.address.zipCode : null  : null : null,
+		source.citation,
+		(source.metadataID) ? (parseInt(source.metadataID) != 'NaN') ? parseInt(source.metadataID) : null : null,
+		(source.sourceID) ? parseInt(source.sourceID) : null
+	]
+	var onconflict = (update) ? 'UPDATE SET "Organization"=excluded."Organization", "SourceDescription"=excluded."SourceDescription", "SourceLink"=excluded."SourceLink", "ContactName"=excluded."ContactName", "Phone"=excluded."Phone", "Email"=excluded."Email", "Address"=excluded."Address", "City"=excluded."City", "State"=excluded."State", "ZipCode"=excluded."ZipCode", "Citation"=excluded."Citation", "MetadataID"=excluded."MetadataID"' : 'NOTHING'
+	var stmt = 'INSERT INTO "Sources" ("Organization","SourceDescription","SourceLink","ContactName","Phone","Email","Address","City","State","ZipCode","Citation","MetadataID","SourceCode") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) ON CONFLICT ("SourceCode") DO ' + onconflict + ' RETURNING *'
+					//~ console.log(stmt)
+	//~ console.log(stmt)
+	return pool.query(stmt,values)
+	.then(res => {
+		//~ client.release()
+		console.log("Source inserted: " + res.rowCount + " rows")
+		//~ console.log(res)
+		return {property:"source",result:res.rows}
+	})
+	.catch(err => console.error("insertsource: Error executing query", err.stack))
+}
+
+function insertmethod(pool,method,update) {
+	console.log("rodando insertmethod")
+	if(!method.methodDescription) {
+		console.error("insertmethod error: falta methodDescription")
+		return {property:"method",result:[]}
+	}
+	if(!method.method.attributes.methodID) {
+		console.error("insertmethod error: falta attributes.methodID")
+		return {property:"method",result:[]}
+	}
+	var values = [
+		method.methodDescription,
+		parseInt(method.attributes.methodID),
+		method.methodLink
+		]
+	var onconflict = (update) ? 'UPDATE SET  "MethodDescription"=excluded."MethodDescription", "MethodLink"=excluded."MethodLink"' : 'NOTHING'
+	var stmt = 'INSERT INTO "Methods" ("MethodDescription", "MethodCode", "MethodLink") VALUES ($1,$2,$3) ON CONFLICT ("MethodCode") DO ' + onconflict + ' RETURNING *'
+	//~ console.log(stmt)
+	return pool.query(stmt,values)
+	.then(res => {
+		//~ client.release()
+		console.log("Method inserted: " + res.rowCount + " rows")
+		//~ console.log(res)
+		return {property:"method",result:res.rows}
+	})
+	.catch(err => console.error("insertmethod: Error executing query", err.stack))
+}

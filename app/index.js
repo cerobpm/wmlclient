@@ -16,6 +16,10 @@ const { Pool } = require('pg')
 //~ const pgpclient = pgp({database: 'odm', user: 'wmlclient', password: 'wmlclient'})
 const config = require('config')
 const pool = new Pool(config.get('dbsettings'))
+pool.on('error', (err,client) => {
+	console.error(err)
+	client.release()
+})
 //~ const appconfig = config.get('/config/default.json')
 const odmpg = require('./odmpg.js')
 var xml2js       = require('xml2js');
@@ -33,6 +37,7 @@ const wmldir = (config.has('options.wmldir')) ? config.get('options.wmldir') : "
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));  
+app.use(bodyParser.json());  
 app.use(express.static('public'));
 var stored_data = {}
 
@@ -43,7 +48,10 @@ app.get('/wmlclient/getsiteinfo',getwmlclientsiteinfo)
 app.get('/wmlclient/siteinfo',getwmlclientsiteinfogui)
 app.get('/wmlclient/getvalues',getwmlclientvalues)
 app.get('/wmlclient/values',getwmlclientvaluesgui)
-//~ app.get('/wmlclient/action',getwmlclientaction)
+app.post('/wmlclient/insertsites',wmlclientinsertsites)
+app.post('/wmlclient/insertsiteinfo',wmlclientinsertsiteinfo)
+app.post('/wmlclient/insertvalues',wmlclientinsertvalues)
+
 app.listen(port, (err) => {
 	if (err) {
 		return console.log('rrr',err)
@@ -55,130 +63,6 @@ function getwmlclient(req, res) {
 	res.render('wmlclient', { url: gicat_url})
 	console.log('wmlclient form displayed')
 	return
-}
-function getwmlclientaction(req, res) {
-	if(!req.query.request || !req.query.accion || !req.query.filename) {
-		console.log("getwmlclientaction error. Parameters missing")
-		res.status(400).send("getwmlclientaction error. Parameters missing")
-		return
-	}
-	var ContentRaw
-	return new Promise( (resolve, reject) => {
-		fs.readFile(req.query.filename, 'utf8', (err, contents) => {
-			if(err) {
-				reject(err)
-			} else {
-				//~ console.log(contents)
-				resolve(contents)
-			}
-		})
-	}).then(contents => {
-		ContentRaw=contents
-		return new Promise( (resolve, reject) => {
-			parser.parseString(contents, (err,parsedcontents) => {
-				if(err) {
-					//~ console.error(err)
-					//~ res.status(400).render("File parser error")
-					reject(err)
-				}
-				//~ console.log(parsedcontents)
-				switch(req.query.request) {
-					case "sites":
-						resolve(parsedcontents["soap:Envelope"]["soap:Body"][0].GetSitesByBoxObjectResponse[0])
-					case "siteinfo":
-						resolve(parsedcontents["soap:Envelope"]["soap:Body"][0].GetSiteInfoObjectResponse[0])
-					case "values":
-						resolve(parsedcontents["soap:Envelope"]["soap:Body"][0].GetValuesObjectResponse[0])
-					default:
-						throw new Error("request not valid")
-				}
-			})
-		})
-	}).then( result => {
-		console.log(result)
-		switch(req.query.accion) {
-			case "insert":
-				var update = (req.query.update) ? req.query.update : false
-				switch(req.query.request) {
-					case "sites":
-						return insertSites(pool,result,update)
-					case "siteinfo":
-						return insertSiteInfo(pool,result,update)
-					case "values":
-						return insertValues(pool,result,update)
-					default:
-						throw new Error("Invalid accion")
-				}
-			case "download":
-				var jsonfilename = req.query.filename.replace(/^\/?(.+\/)+(.+)\.wml$/,"$2.json")
-				res.setHeader('Content-disposition', 'attachment; filename='+jsonfilename);
-				//~ res.send(result)
-				return result
-			case "downloadraw": 
-				var xmlfilename = req.query.filename.replace(/^.*\//,"")
-			    res.setHeader('Content-disposition', 'attachment; filename=' + xmlfilename)
-				console.log("download raw")
-				//~ res.send(contents)
-				return ContentRaw
-			case "downloadcsv":
-			    var arr
-				switch(req.query.request) {
-					case "sites":
-						if(!result.sitesResponse) {
-							throw new Error("sitesResponse not found!")
-						}
-						arr = sites2arr(result)
-						if(!arr) {
-							console.log("No se pudo convertir SitesResponse a array")
-							throw new Error("No se pudo convertir SitesResponse a array")
-						}
-					case "siteinfo":
-						if(!result.sitesResponse) {
-							throw new Error("sitesResponse not found!")
-						}
-						arr = siteinfo2arr(result)
-						if(!arr) {
-							console.log("No se pudo convertir SitesResponse a array")
-							throw new Error("No se pudo convertir SitesResponse a array")
-						}
-					case "values":
-						if(!result.timeSeriesResponse) {
-							throw new Error("sitesResponse not found!")
-						}
-						if(!result.timeSeriesResponse.timeSeries) {
-							throw new Error("timeSeriesResponse.timeSeries not found")
-						}
-						if(!result.timeSeriesResponse.timeSeries.values) {
-							throw new Error("timeSeriesResponse.timeSeries.values not found")
-						}
-						arr = values2arr(result.timeSeriesResponse.timeSeries.values)
-						if(!arr) {
-							console.log("No se pudo convertir values a array")
-							throw new Error("No se pudo convertir values a array")
-						}
-					default:
-						throw new Error("Invalid request")
-				}
-				var csv = arr2csv(arr)
-				if(!csv) {
-					console.log("No se pudo convertir array a csv")
-					throw new Error("No se pudo convertir array a csv")
-				}
-				var csvfilename = req.query.filename.replace(/^\/?(.+\/)+(.+)\.wml$/,"$2.csv")
-				res.setHeader('Content-disposition', 'attachment; filename='+csvfilename)
-				return csv
-			default:
-				console.error("invalid accion")
-				//~ res.status(400).send("invalid accion")
-				throw new Error("invalid accion") 
-		}
-	}).then(result => {
-		console.log(result)
-		res.send(result)
-	}).catch(e =>{
-		console.error(e)
-		res.status(400).send(e)
-	})
 }
 
 function getwmlclientsites(req, res) {
@@ -198,9 +82,23 @@ function getwmlclientsites(req, res) {
 				    return 
 			    }
 			    var now = Date.now()
-			    var list = sites2arr(result.sitesResponse) 
-			    var csv = arr2csv(list)
-			    res.send({query:{ north: req.query.north, south: req.query.south, east: req.query.east, west: req.query.west, endpoint: req.query.endpoint}, result: {data: result, xml: rawResponse, json: JSON.stringify(result.sitesResponse), csv: csv, list: list}})
+			    req.query.format = (req.query.format) ? req.query.format : ''
+			    console.log('format:'+req.query.format)
+				if(['xml','wml','waterml'].indexOf(req.query.format.toLowerCase()) >= 0) {
+					res.send(rawResponse)
+				} else if(['json','js'].indexOf(req.query.format.toLowerCase()) >= 0) {
+					res.json(result.sitesResponse)
+				} else {
+					var list = sites2arr(result.sitesResponse) 
+					var csv = arr2csv(list)
+					if(['csv','txt'].indexOf(req.query.format.toLowerCase()) >= 0) {
+						res.send(csv)
+					} else if (['list','array'].indexOf(req.query.format.toLowerCase()) >= 0) {
+						res.json(list)
+					} else {
+						res.send({query:{ north: req.query.north, south: req.query.south, east: req.query.east, west: req.query.west, endpoint: req.query.endpoint}, result: {data: result, xml: rawResponse, json: JSON.stringify(result.sitesResponse), csv: csv, list: list}})
+					}
+				}
 			    return
 				// that's it
 				
@@ -417,9 +315,23 @@ function getwmlclientsiteinfo(req, res) {
 				  console.log(err)
 				  return 
 				}
-				var list = siteinfo2arr(result.sitesResponse) 
-			    var csv = arr2csv(list)
-			    res.send({query:{ site: req.query.site, endpoint: req.query.endpoint}, result: {data: result, xml: rawResponse, json: JSON.stringify(result.sitesResponse), csv: csv, list: list}})
+			    req.query.format = (req.query.format) ? req.query.format : ''
+			    console.log('format:'+req.query.format)
+				if(['xml','wml','waterml'].indexOf(req.query.format.toLowerCase()) >= 0) {
+					res.send(rawResponse)
+				} else if(['json','js'].indexOf(req.query.format.toLowerCase()) >= 0) {
+					res.json(result.sitesResponse)
+				} else {
+					var list = siteinfo2arr(result.sitesResponse) 
+					var csv = arr2csv(list)
+					if(['csv','txt'].indexOf(req.query.format.toLowerCase()) >= 0) {
+						res.send(csv)
+					} else if (['list','array'].indexOf(req.query.format.toLowerCase()) >= 0) {
+						res.json(list)
+					} else {
+						res.send({query:{ site: req.query.site, endpoint: req.query.endpoint}, result: {data: result, xml: rawResponse, json: JSON.stringify(result.sitesResponse), csv: csv, list: list}})
+					}
+				}
 			    return
 			    // that's it
 			    
@@ -573,9 +485,23 @@ function getwmlclientvalues(req, res) {
 					res.status(400).send("timeSeriesResponse.timeSeries.values not found!")
 					return
 				}
-				var list = values2arr(result.timeSeriesResponse.timeSeries.values) 
-			    var csv = arr2csv(list)
-			    res.send({query:{ site: req.query.site, variable: req.query.variable, startdate: req.query.startdate, enddate: req.query.enddate, endpoint: req.query.endpoint}, result: {data: result, xml: rawResponse, json: JSON.stringify(result.timeSeriesResponse), csv: csv, list: list}})
+			    req.query.format = (req.query.format) ? req.query.format : ''
+			    console.log('format:'+req.query.format)
+				if(['xml','wml','waterml'].indexOf(req.query.format.toLowerCase()) >= 0) {
+					res.send(rawResponse)
+				} else if(['json','js'].indexOf(req.query.format.toLowerCase()) >= 0) {
+					res.json(result.sitesResponse)
+				} else {
+					var list = values2arr(result.timeSeriesResponse.timeSeries.values) 
+					var csv = arr2csv(list)
+					if(['csv','txt'].indexOf(req.query.format.toLowerCase()) >= 0) {
+						res.send(csv)
+					} else if (['list','array'].indexOf(req.query.format.toLowerCase()) >= 0) {
+						res.json(list)
+					} else {
+						res.send({query:{ site: req.query.site, variable: req.query.variable, startdate: req.query.startdate, enddate: req.query.enddate, endpoint: req.query.endpoint}, result: {data: result, xml: rawResponse, json: JSON.stringify(result.timeSeriesResponse), csv: csv, list: list}})
+					}
+				}
 		    	console.log("getvalues response sent")
 			    return
 			    // that's it
@@ -702,5 +628,86 @@ function getwmlclientvaluesgui(req,res) {
 	} else {
 		console.log("values: no args")
 		res.render('values', {endpoint: gicat_url})
+	}
+}
+
+function wmlclientinsertsites(req,res) {
+	if(req.body) {
+		console.log(req.body)
+		if(req.body.site) {
+			var update = (req.body.update) ? req.body.update : false
+			insertSites(pool,{sitesResponse:{site:req.body.site}},update)
+				.then((result)=>{
+					console.log(result)
+					res.send(result)
+				})
+				.catch((e)=>{
+					console.error(e)
+					res.status(400).send(e)
+				})
+			return
+		} else {
+			console.error("Falta site en request body")
+			res.status(400).send("Falta data en request body")
+			return
+		}
+	} else {
+		console.error("falta body en request")
+		res.status(400).send("Falta body en request")
+		return
+	}
+}
+
+function wmlclientinsertsiteinfo(req,res) {
+	if(req.body) {
+		console.log(req.body)
+		if(req.body.site) {
+			var update = (req.body.update) ? req.body.update : false
+			insertSiteInfo(pool,{sitesResponse:{site:req.body.site}},true)   // update overriden!
+				.then((result)=>{
+					console.log(result)
+					res.send(result)
+				})
+				.catch((e)=>{
+					console.error(e)
+					res.status(400).send(e)
+				})
+			return
+		} else {
+			console.error("Falta site en request body")
+			res.status(400).send("Falta data en request body")
+			return
+		}
+	} else {
+		console.error("falta body en request")
+		res.status(400).send("Falta body en request")
+		return
+	}
+}
+
+function wmlclientinsertvalues(req,res) {
+	if(req.body) {
+		console.log(req.body)
+		if(req.body.timeSeries) {
+			var update = (req.body.update) ? req.body.update : false
+			insertValues(pool,{timeSeriesResponse:{timeSeries:req.body.timeSeries}},update)
+				.then((result)=>{
+					console.log(result)
+					res.send(result)
+				})
+				.catch((e)=>{
+					console.error(e)
+					res.status(400).send(e)
+				})
+			return
+		} else {
+			console.error("Falta timeSeries en request body")
+			res.status(400).send("Falta timeSeries en request body")
+			return
+		}
+	} else {
+		console.error("falta body en request")
+		res.status(400).send("Falta body en request")
+		return
 	}
 }

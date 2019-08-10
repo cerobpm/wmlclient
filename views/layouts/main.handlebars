@@ -9,6 +9,7 @@
     <script>
 		var stored_data
 		var listfunc = {getsites: printsiteslist, getsiteinfo: printsiteinfolist, getvalues: printvalueslist} // , getvalues: getvalueslist} 
+		var insertfunc = {getsites: insertsites, getsiteinfo: insertsiteinfo, getvalues: insertvalues}
 		$( document ).ready( function() {
 			$("button.action2").attr("disabled",true)
 		})
@@ -30,13 +31,14 @@
 				$("button.action2").attr("disabled", false)
 				$("h4#action2title").html(data.result.list.length + " records found!")
 				$("button#list").click(listfunc[request])
+				$("button#insert").click(insertfunc[request])
 				$("a#xml").attr("href", makexmllink())
 				$("a#json").attr("href", makejsonlink())
 				$("a#csv").attr("href", makecsvlink())
 				return
 			}).fail(() => {
 				alert("No data found!")
-				document.bodt.style.cursor = "default"
+				document.body.style.cursor = "default"
 				return
 			}) 
 			//~ $("form#getsoap").ajaxSubmit({url: "sites", type: "get"})
@@ -229,6 +231,118 @@
 			}
 			return window.URL.createObjectURL(new Blob([stored_data.result.csv], {type: 'text/plain'})); 
 		}
+		function insertsites() {
+			if(!stored_data.result.json) {
+				console.log("No data found!")
+				return
+			}
+			//~ console.log(stored_data.result.json)
+			$.ajax({
+				method: "POST",
+				url: "/wmlclient/insertsites",
+				data: stored_data.result.json,
+				contentType:"application/json",
+				success:function(data) {
+					insertsuccess(data)
+				},
+				dataType:"json",
+				error: function(jqXHR, textStatus, errorThrown) {
+					var err_desc = $.parseJSON(jqXHR.responseText);
+					if(err_desc.error) {
+						console.log(err_desc.error);
+						if(err_desc.error.detail) {
+							alert(err_desc.error.detail)
+						} else {
+							alert( errorThrown );
+						}
+					} else {
+						alert( errorThrown );
+					}
+				}
+			})
+			return 
+		}
+		function insertsiteinfo() {
+			if(!stored_data.result.data) {
+				console.log("No data found!")
+				return
+			}
+			//~ console.log(stored_data.result.data)
+			$.ajax({
+				method: "POST",
+				url: "/wmlclient/insertsiteinfo",
+				data: stored_data.result.json,
+				contentType:"application/json",
+				success:function(data) {
+					insertsuccess(data)
+				},
+				dataType:"json",
+				error: function(jqXHR, textStatus, errorThrown) {
+					var err_desc = $.parseJSON(jqXHR.responseText);
+					if(err_desc.error) {
+						console.log(err_desc.error);
+						if(err_desc.error.detail) {
+							alert(err_desc.error.detail)
+						} else {
+							alert( errorThrown );
+						}
+					} else {
+						alert( errorThrown );
+					}
+				}
+			})
+			return
+		}
+		function insertvalues() {
+			if(!stored_data.result.data) {
+				console.log("No data found!")
+				return
+			}
+			console.log(stored_data.result.data)
+			$.ajax({
+				method: "POST",
+				url: "/wmlclient/insertvalues",
+				data: stored_data.result.json,
+				contentType:"application/json",
+				success:function(data) {
+					insertsuccess(data)
+				},
+				dataType:"json",
+				error: function(jqXHR, textStatus, errorThrown) {
+					var err_desc = $.parseJSON(jqXHR.responseText);
+					if(err_desc.error) {
+						console.log(err_desc.error);
+						if(err_desc.error.detail) {
+							alert(err_desc.error.detail)
+						} else {
+							alert( errorThrown );
+						}
+					} else {
+						alert( errorThrown );
+					}
+				}
+			})
+			return
+		}
+		function insertsuccess(data) {
+			//~ if(status != 200) {
+				//~ alert("Error on insertion")
+				//~ return 
+			//~ }
+			if(!data) {
+				alert("Nothing returned")
+				return
+			}
+			if(data.result) {
+				var len = data.result.length
+				alert(len + " rows added")
+				return
+			} else {
+				alert("Rows added")
+				return
+			}
+		}
+			
 </script>
 
 			
